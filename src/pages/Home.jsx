@@ -4,7 +4,15 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div className="grid grid-flow-row gap-4 p-5">
+      <div className="grid grid-flow-row grid-cols-2 gap-x-1 p-5">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />
