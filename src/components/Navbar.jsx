@@ -11,7 +11,9 @@ export default function Navbar() {
   return (
     <div className="bg-white navbar_container flex items-center place-content-between p-5 sticky top-0">
       <div className="flex gap-2 items-center">
-        <h1 className="font-[DM_Serif_Display]">G U A V A</h1>
+        <a href="/home" className="font-[DM_Serif_Display]">
+          G U A V A
+        </a>
         <i className="rounded-md p-1 text-green-700">
           <FontAwesomeIcon icon={faSeedling} />
         </i>

@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "title": "Men's Floral T-Shirt",
+    "category": "Tops",
+    "colors": ["Grey", "White"],
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552"
+  },
+  {
+    "id": 2,
+    "title": "Women's Leather Handbag",
+    "category": "Accessories",
+    "colors": ["Black", "Brown"],
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
+  },
+  {
+    "id": 3,
+    "title": "Running Sneakers",
+    "category": "Footwear",
+    "colors": ["Blue", "White"],
+    "price": 69.99,
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552"
+  },
+  {
+    "id": 4,
+    "title": "Casual Denim Jacket",
+    "category": "Outerwear",
+    "colors": ["Blue", "Light Blue"],
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
+  },
+  {
+    "id": 5,
+    "title": "Classic Black Dress",
+    "category": "Dresses",
+    "colors": ["Black"],
+    "price": 74.99,
+    "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+  },
+  {
+    "id": 6,
+    "title": "Men's Slim Fit Suit",
+    "category": "Formalwear",
+    "colors": ["Navy", "Grey"],
+    "price": 149.99,
+    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+  },
+  {
+    "id": 7,
+    "title": "Women's Summer Hat",
+    "category": "Accessories",
+    "colors": ["Beige", "Brown"],
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+  },
+  {
+    "id": 8,
+    "title": "Leather Boots",
+    "category": "Footwear",
+    "colors": ["Brown", "Black"],
+    "price": 119.99,
+    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+  },
+  {
+    "id": 9,
+    "title": "Plaid Scarf",
+    "category": "Accessories",
+    "colors": ["Red", "Black"],
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+  },
+  {
+    "id": 10,
+    "title": "Men's Polo Shirt",
+    "category": "Tops",
+    "colors": ["White", "Navy"],
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"
+  },
+  {
+    "id": 11,
+    "title": "Women's High Heels",
+    "category": "Footwear",
+    "colors": ["Red", "Black"],
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+  },
+  {
+    "id": 12,
+    "title": "Men's Casual Hoodie",
+    "category": "Tops",
+    "colors": ["Grey", "Black"],
+    "price": 44.99,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+  },
+  {
+    "id": 13,
+    "title": "Women's Trench Coat",
+    "category": "Outerwear",
+    "colors": ["Beige", "Khaki"],
+    "price": 129.99,
+    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+  },
+  {
+    "id": 14,
+    "title": "Baseball Cap",
+    "category": "Accessories",
+    "colors": ["Black", "White"],
+    "price": 14.99,
+    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"
+  },
+  {
+    "id": 15,
+    "title": "Men's Chinos",
+    "category": "Bottoms",
+    "colors": ["Beige", "Navy"],
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"
+  },
+  {
+    "id": 16,
+    "title": "Women's Maxi Skirt",
+    "category": "Bottoms",
+    "colors": ["Green", "Black"],
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+  },
+  {
+    "id": 17,
+    "title": "Men's Leather Jacket",
+    "category": "Outerwear",
+    "colors": ["Black"],
+    "price": 159.99,
+    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+  },
+  {
+    "id": 18,
+    "title": "Women's Blouse",
+    "category": "Tops",
+    "colors": ["White", "Blue"],
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+  }
+  ]

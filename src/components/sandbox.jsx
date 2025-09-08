@@ -2,17 +2,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-export default function FiltersBar({ categories, onSelect, selectedCategory }) {
+export default function FiltersBar({ categories }) {
   const [menuOpen, setMenuOpen] = useState(false);
-
   function openFilters() {
+    function filterItems(category) {
+      console.log(category);
+    }
     return categories.map((category) => (
       <li
         key={category}
-        onClick={() => onSelect(category)}
-        className={`hover:cursor-pointer hover:underline pl-2 pt-1 pb-1 ${
-          selectedCategory === category ? "bg-cyan-800 text-white" : ""
-        }`}
+        onClick={() => onselect(category)}
+        className="hover:underline hover:cursor-pointer"
       >
         {category
           .split(" ")
@@ -24,12 +24,15 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
 
   return (
     <div>
-      <button onClick={() => setMenuOpen((prev) => !prev)} className="p-5">
+      <button
+        onClick={() => setMenuOpen((prev) => !prev)}
+        className="p-5 hover:cursor-pointer"
+      >
         <FontAwesomeIcon icon={faFilter} />
         FILTER AND ORDER
       </button>
       {menuOpen && (
-        <ul className="w-full grid gap-2 p-5 bg-stone-100">
+        <ul className="w-full grid gap-3 p-5 bg-neutral-100">
           {openFilters(categories)}
         </ul>
       )}
