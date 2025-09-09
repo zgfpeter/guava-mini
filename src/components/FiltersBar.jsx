@@ -24,7 +24,10 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
 
   return (
     <div>
-      <button onClick={() => setMenuOpen((prev) => !prev)} className="p-5">
+      <button
+        onClick={() => setMenuOpen((prev) => !prev)}
+        className="p-5 hover:cursor-pointer"
+      >
         <FontAwesomeIcon icon={faFilter} />
         FILTER AND ORDER
       </button>

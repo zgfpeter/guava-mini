@@ -1,9 +1,10 @@
 import "./App.css";
-import Home from "./pages/Home.jsx";
+import Help from "./pages/Help.jsx";
+
 function App() {
   return (
     <>
-      <Home />
+      <Help />
     </>
   );
 }
