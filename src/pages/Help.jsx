@@ -1,11 +1,19 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import CustomButton from "../components/CustomButton";
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTruckFast,
+  faCreditCard,
+  faRotateLeft,
+  faShirt,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { useState } from "react";
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
+  const faq_answers_classes =
+    "pt-15 pb-15 pr-3 pl-3 items-center h-full border-[0.5px] border-black border-collapse border-l-0 text-center text-s bg-stone-100 hover:cursor-pointer hover:bg-stone-200";
   const faqs = [
     {
       question: "Where is my order?",
@@ -20,7 +28,7 @@ export default function Faq() {
     {
       question: "How long will delivery take?",
       answer:
-        "Delivery usually takes 3–5 business days, depending on your location.",
+        "Delivery usually takes 3-5 business days, depending on your location.",
     },
     {
       question: "How and when will I receive my refund?",
@@ -41,17 +49,22 @@ export default function Faq() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <h1 className="p-5 bg-amber-700 text-white font-bold w-full text-center font-[DM_Serif_Display]">
+      <h1 className="p-5 mb-10 bg-amber-700 text-white font-bold w-full text-center font-[DM_Serif_Display]">
         HELP
       </h1>
       <main className="flex-grow min-h-150 flex flex-col">
         <h2 className="p-5">FREQUENTLY ASKED QUESTIONS</h2>
-        <ul className="flex gap-3 pl-5 pr-5 pb-5 flex-col text-stone-600">
+        <ul className="flex gap-3 pl-5 pr-5 pb-5 mb-5 flex-col text-stone-600">
           {faqs.map((faq, index) => (
             <li key={index}>
-              <button onClick={() => toggleFAQ(index)}>{faq.question}</button>
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="hover:cursor-pointer"
+              >
+                {faq.question}
+              </button>
               {openIndex === index && (
-                <p className="mt-2 text-sm text-stone-600 p-5 bg-stone-100">
+                <p className="mt-2 text-sm text-stone-600 p-5 bg-stone-100 ">
                   {faq.answer}
                 </p>
               )}
@@ -60,26 +73,31 @@ export default function Faq() {
         </ul>
 
         <h2 className="p-5">CATEGORIES</h2>
-        <table className="text-stone-600 text-[0.9em] items-center">
+        <table className="text-stone-600 text-[0.9em]">
           <tbody>
             <tr>
-              <td className="pt-5 pb-5 pr-4 pl-4 h-full border-[0.5px] border-black border-collapse border-l-0 text-center bg-stone-100 hover:cursor-pointer hover:bg-stone-200">
+              <td className={faq_answers_classes}>
+                <FontAwesomeIcon icon={faTruckFast} className="pr-2" />
                 Delivery and order tracking
               </td>
-              <td className="pt-5 pb-5 pr-4 pl-4 h-full border-[0.5px] border-black  border-r-0 text-center bg-stone-100 hover:cursor-pointer hover:bg-stone-200">
+              <td className={faq_answers_classes}>
+                <FontAwesomeIcon icon={faRotateLeft} className="pr-2" />
                 Returns, exchanges and refunds
               </td>
             </tr>
             <tr>
-              <td className="pt-5 pb-5 pr-4 pl-4 h-full border-[0.5px] border-black  border-l-0 text-center bg-stone-100 hover:cursor-pointer hover:bg-stone-200">
+              <td className={faq_answers_classes}>
+                <FontAwesomeIcon icon={faCreditCard} className="pr-2" />
                 Payment methods
               </td>
-              <td className="pt-5 pb-5 pr-4 pl-4 h-full border-[0.5px] border-black  border-r-0 text-center bg-stone-100 hover:cursor-pointer hover:bg-stone-200">
+              <td className={faq_answers_classes}>
+                <FontAwesomeIcon icon={faShirt} className="pr-2" />
                 Size information
               </td>
             </tr>
             <tr>
-              <td className="pt-5 pb-5 pr-4 pl-4 h-full border-[0.5px] border-black  border-l-0 text-center bg-stone-100 hover:cursor-pointer hover:bg-stone-200">
+              <td className={faq_answers_classes}>
+                <FontAwesomeIcon icon={faUser} className="pr-2" />
                 Personal data
               </td>
             </tr>

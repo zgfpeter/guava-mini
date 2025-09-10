@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
-    <div className="bottom-0 grid gap-2 p-3 text-xs">
+    <div className="bottom-0 grid gap-5 p-3 text-xs">
       <div className="sm_links flex flex-wrap p-5 gap-4">
         <a href="https://www.instagram.com" className="hover:underline">
           INSTAGRAM
@@ -23,18 +24,24 @@ export default function Footer() {
         <a href="https://www.tiktok.com">TIKTOK</a>
       </div>
       <div className="footer_about grid gap-4">
-        <a href="" className="hover:underline">
+        <Link to="/about" className="hover:underline">
           ABOUT
-        </a>
-        <a href="" className="hover:underline">
-          FAQ
-        </a>
-        <a href="" className="hover:underline">
+        </Link>
+        <Link to="/help" className="hover:underline">
+          HELP
+        </Link>
+        <Link to="/shippingAndReturns" className="hover:underline">
           SHIPPING & RETURN
-        </a>
-        <a href="" className="hover:underline">
+        </Link>
+        <Link to="/privacyAndCookies" className="hover:underline">
           PRIVACY AND COOKIES POLICY
-        </a>
+        </Link>
+        <Link to="/contact" className="hover:underline">
+          CONTACT
+        </Link>
+        <p className="text-center pt-5 pb-5 text-gray-500">
+          All rights reserved - © 2025
+        </p>
       </div>
     </div>
   );

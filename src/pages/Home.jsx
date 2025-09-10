@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar.jsx";
+import { Link } from "react-router-dom";
 import FiltersBar from "../components/FiltersBar.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import PromoBanner from "../components/PromoBanner.jsx";
@@ -41,7 +42,7 @@ function Home() {
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         <Navbar />
-        <PromoBanner headingLevel={"h2"} />
+        <PromoBanner headingLevel={"h2"} bg_color={"bg-rose-700"} />
         <FiltersBar
           categories={productCategories}
           onSelect={setSelectedCategory}
