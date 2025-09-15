@@ -10,6 +10,7 @@ export default function ContactForm() {
   });
 
   const [errors, setErrors] = useState({});
+  const [formSuccess, setFormSuccess] = useState(false);
 
   const handleChange = (e) => {
     //console.log(e.target.value);
@@ -31,6 +32,16 @@ export default function ContactForm() {
     return newErrors;
   };
 
+  const clearForm = () => {
+    setContactForm({
+      contact_email: "",
+      contact_firstName: "",
+      contact_lastName: "",
+      contact_orderNumber: "",
+      contact_userMessage: "",
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
@@ -39,7 +50,8 @@ export default function ContactForm() {
       setErrors(validationErrors);
     } else {
       setErrors({}); // no errors, send data
-      console.log("Form data is valid");
+      setFormSuccess(true);
+      clearForm();
     }
   };
 
@@ -106,7 +118,11 @@ export default function ContactForm() {
       {errors.contact_userMessage && (
         <span className="text-red-600">{errors.contact_userMessage}</span>
       )}
-
+      {formSuccess && (
+        <span className="text-emerald-800">
+          {"Your message has been sent!"}
+        </span>
+      )}
       <button
         type="submit"
         className="w-full pt-3 pb-3 pl-10 pr-10 bg-emerald-700 text-white self-center rounded hover:cursor-pointer hover:bg-emerald-900"

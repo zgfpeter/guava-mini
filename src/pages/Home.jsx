@@ -1,5 +1,4 @@
 import Navbar from "../components/Navbar.jsx";
-import { Link } from "react-router-dom";
 import FiltersBar from "../components/FiltersBar.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import PromoBanner from "../components/PromoBanner.jsx";

@@ -28,7 +28,7 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
         onClick={() => setMenuOpen((prev) => !prev)}
         className="p-5 hover:cursor-pointer"
       >
-        <FontAwesomeIcon icon={faFilter} />
+        <FontAwesomeIcon icon={faFilter} className="text-[1.2em]" />
         FILTER AND ORDER
       </button>
       {menuOpen && (
