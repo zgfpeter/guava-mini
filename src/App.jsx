@@ -7,8 +7,17 @@ import PrivacyAndCookies from "./pages/PrivacyAndCookies.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import Contact from "./pages/contact.jsx";
 import { Routes, Route } from "react-router-dom";
+import SingleProduct from "./pages/SingleProduct";
+import Cart from "./pages/Cart.jsx";
+import { useEffect } from "react";
+import Payment from "./pages/Payment.jsx";
+import DeliveryDetails from "./pages/DeliveryDetails.jsx";
 
 function App() {
+  useEffect(() => {
+    localStorage.clear(); // clears everything on load
+  }, []);
+
   return (
     <>
       <Routes>
@@ -20,6 +29,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/singleProduct" element={<SingleProduct />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/deliveryDetails" element={<DeliveryDetails />} />
       </Routes>
     </>
   );

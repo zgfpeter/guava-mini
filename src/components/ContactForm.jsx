@@ -11,7 +11,7 @@ export default function ContactForm() {
 
   const [errors, setErrors] = useState({});
   const [formSuccess, setFormSuccess] = useState(false);
-
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const handleChange = (e) => {
     //console.log(e.target.value);
     setContactForm({ ...contactForm, [e.target.name]: e.target.value });
@@ -25,7 +25,7 @@ export default function ContactForm() {
       newErrors.contact_lastName = "Last name is required";
     if (!contactForm.contact_email)
       newErrors.contact_email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactForm.contact_email))
+    else if (!emailRegex.test(contactForm.contact_email))
       newErrors.contact_email = "Email is invalid";
     if (!contactForm.contact_userMessage)
       newErrors.contact_userMessage = "Message cannot be empty";
@@ -52,6 +52,7 @@ export default function ContactForm() {
       setErrors({}); // no errors, send data
       setFormSuccess(true);
       clearForm();
+      setTimeout(() => setFormSuccess(false), 5000); // form success message disappears
     }
   };
 
@@ -63,7 +64,7 @@ export default function ContactForm() {
       <input
         type="text"
         name="contact_firstName"
-        className="border-1 rounded p-2 bg-stone-50"
+        className="border rounded p-2 bg-stone-50"
         placeholder="First Name..."
         value={contactForm.contact_firstName}
         onChange={handleChange}
@@ -75,7 +76,7 @@ export default function ContactForm() {
       <input
         type="text"
         name="contact_lastName"
-        className="border-1 rounded p-2 bg-stone-50"
+        className="border rounded p-2 bg-stone-50"
         placeholder="Last Name..."
         value={contactForm.contact_lastName}
         onChange={handleChange}
@@ -87,7 +88,7 @@ export default function ContactForm() {
       <input
         type="email"
         name="contact_email"
-        className="border-1 rounded p-2 bg-stone-50"
+        className="border rounded p-2 bg-stone-50"
         placeholder="Email Address..."
         value={contactForm.contact_email}
         onChange={handleChange}
@@ -99,16 +100,14 @@ export default function ContactForm() {
       <input
         type="text"
         name="contact_orderNumber"
-        id=""
-        className="border-1 rounded p-2 bg-stone-50"
+        className="border rounded p-2 bg-stone-50"
         value={contactForm.contact_orderNumber}
         onChange={handleChange}
         placeholder="Order number (optional) "
       />
       <textarea
         name="contact_userMessage"
-        id="contact_userMessage"
-        className="border-1 rounded p-2 bg-stone-50"
+        className="border rounded p-2 bg-stone-50"
         placeholder="Message..."
         required
         minLength={10}

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
+import useLocalStorage from "./useLocalStorage";
 import {
   faSeedling,
   faSearch,
@@ -27,10 +28,13 @@ export default function Navbar() {
       inputRef.current.focus();
     }
   }, [isSearchOpen]);
+
+  const [cart] = useLocalStorage("cart", []);
+
   return (
-    <div className="bg-white navbar_container flex items-center place-content-between p-5 sticky top-0 z-50">
+    <header className="bg-white navbar_container flex items-center place-content-between p-5 sticky top-0 z-50">
       {isMenuOpen && (
-        <div className="fixed bottom-0 left-0 right-0 top-18 bg-stone-100">
+        <nav className="fixed bottom-0 left-0 right-0 top-[4.5rem] bg-stone-100">
           <div className="flex flex-col justify-center gap-10 p-5 h-full">
             <Link to="/about" className="hover:underline">
               ABOUT
@@ -48,11 +52,15 @@ export default function Navbar() {
               CONTACT
             </Link>
           </div>
-        </div>
+        </nav>
       )}
 
       <div className="relative flex gap-2 items-center">
-        <button onClick={burgerMenu} className="flex p-1 hover:cursor-pointer">
+        <button
+          aria-label="Toggle menu"
+          onClick={burgerMenu}
+          className="flex p-1 hover:cursor-pointer"
+        >
           <FontAwesomeIcon
             icon={isMenuOpen ? faX : faBars}
             className="text-[25px]"
@@ -64,7 +72,7 @@ export default function Navbar() {
         </Link>
         <FontAwesomeIcon icon={faSeedling} className="text-green-700" />
       </div>
-      <div className="flex gap-3 items-center">
+      <nav className="flex gap-3 items-center">
         {isSearchOpen && (
           <div className="fixed bottom-0 left-0 right-0 top-18 bg-stone-50 p-5">
             <div className="flex">
@@ -74,22 +82,33 @@ export default function Navbar() {
                 placeholder="Search for products..."
                 className="border-1 p-3 w-full rounded-l focus:outline-none"
               />
-              <button className="bg-emerald-800 text-white pr-5 pl-5 rounded-r hover:cursor-pointer hover:bg-emerald-900">
+              <button
+                aria-label="Search for products"
+                className="bg-emerald-800 text-white pr-5 pl-5 rounded-r hover:cursor-pointer hover:bg-emerald-900"
+              >
                 Search
               </button>
             </div>
           </div>
         )}
-        <button className="hover:cursor-pointer" onClick={searchProducts}>
+        <button
+          aria-label="Search for products"
+          className="hover:cursor-pointer"
+          onClick={searchProducts}
+        >
           <FontAwesomeIcon icon={faSearch} />
         </button>
-        <button className="hover:cursor-pointer">
+        <button aria-label="open user profile" className="hover:cursor-pointer">
           <FontAwesomeIcon icon={faUser} />
         </button>
-        <button className="hover:cursor-pointer">
+        <Link
+          to="/cart"
+          className="hover:cursor-pointer flex items-center gap-1 "
+        >
           <FontAwesomeIcon icon={faCartShopping} />
-        </button>
-      </div>
-    </div>
+          {cart.length}
+        </Link>
+      </nav>
+    </header>
   );
 }
