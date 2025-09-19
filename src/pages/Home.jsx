@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "../components/Header.jsx";
 import FiltersBar from "../components/FiltersBar.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import PromoBanner from "../components/PromoBanner.jsx";

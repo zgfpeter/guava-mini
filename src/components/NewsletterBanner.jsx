@@ -4,7 +4,7 @@ export default function NewsletterBanner() {
       <input
         type="email"
         placeholder="Enter your email"
-        className="bg-neutral-100 mr-2 p-1 text-stone-900"
+        className="bg-neutral-100 px-2 py-1 text-stone-900"
       />
       <button
         type="submit"

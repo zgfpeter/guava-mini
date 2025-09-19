@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Header";
 import Footer from "../components/Footer";
 import useLocalStorage from "../components/useLocalStorage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,10 +11,11 @@ import {
 export default function Cart() {
   const [cart, setCart] = useLocalStorage("cart", []);
 
-  //console.log(cart);
-
   function removeFromCart(id) {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    setCart(
+      (prevCart) =>
+        prevCart.filter((item) => item.id !== id) && item.size === size
+    );
   }
   const formatPrice = (value) =>
     new Intl.NumberFormat("de-DE", {
@@ -23,6 +24,8 @@ export default function Cart() {
     }).format(value);
 
   const totalPrice = cart.reduce((sum, product) => sum + product.price, 0);
+  localStorage.setItem("cartTotal", totalPrice);
+  //console.log(cart);
 
   return (
     <div>
@@ -39,11 +42,16 @@ export default function Cart() {
               />
               <div>
                 <h2 className="mr-8 mb-3 text-wrap">{product.title}</h2>
-                <p>€ {formatPrice(product.price)}</p>
+                {product.size && (
+                  <p className="text-sm text-stone-500 mb-3">
+                    Size: {product.size}
+                  </p>
+                )}
+                <p>{formatPrice(product.price)}</p>
               </div>
               <button
                 className="absolute right-0 top-0 hover:cursor-pointer"
-                onClick={() => removeFromCart(product.id)}
+                onClick={() => removeFromCart(product.id, product.size)}
               >
                 <FontAwesomeIcon
                   icon={faX}
@@ -55,7 +63,7 @@ export default function Cart() {
           {cart.length > 0 ? (
             <section className="grid p-3 mt-10 border border-stone-300 gap-2">
               <p className="flex place-content-between text-[0.85em]">
-                Price <span>{formatPrice(totalPrice)} € </span>
+                Price <span>{formatPrice(totalPrice)} </span>
               </p>
               <p className="text-rose-500 font-thin text-[0.85em] flex place-content-between">
                 Discount<span>{formatPrice(0)}</span>
@@ -69,7 +77,7 @@ export default function Cart() {
               </div>
               <p className="text-[0.85em] text-stone-600">Taxes included</p>
               <Link
-                to="/checkout"
+                to="/deliveryDetails"
                 className="flex gap-2 items-center justify-center p-3 text-white mb-5 bg-rose-700 "
               >
                 CHECKOUT
