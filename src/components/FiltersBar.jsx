@@ -9,8 +9,11 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
     return categories.map((category) => (
       <li
         key={category}
-        onClick={() => onSelect(category)}
-        className={`hover:cursor-pointer hover:underline pl-2 pt-1 pb-1 ${
+        onClick={() => {
+          onSelect(category);
+          setMenuOpen((prev) => !prev);
+        }}
+        className={`hover:cursor-pointer hover:underline p-2 ${
           selectedCategory === category ? "bg-cyan-800 text-white" : ""
         }`}
       >
@@ -32,7 +35,7 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
         FILTER AND ORDER
       </button>
       {menuOpen && (
-        <ul className="w-full grid gap-2 p-5 bg-stone-100">
+        <ul className="w-full grid gap-2 p-5 bg-stone-100 text-[0.9em] font-thin">
           {openFilters(categories)}
         </ul>
       )}

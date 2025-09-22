@@ -1,4 +1,4 @@
-import Navbar from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -48,7 +48,7 @@ export default function Faq() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      <Header />
       <h1 className="p-5 mb-10 bg-amber-700 text-white font-bold w-full text-center font-[DM_Serif_Display]">
         HELP
       </h1>

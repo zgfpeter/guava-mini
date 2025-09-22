@@ -1,9 +1,9 @@
-import Navbar from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 export default function PrivacyAndCookies() {
   return (
     <div className="relative min-h-screen flex flex-col">
-      <Navbar />
+      <Header />
       <main className="">
         <h1 className="p-5 bg-amber-700 text-white font-bold w-full text-center font-[DM_Serif_Display]">
           PRIVACY & COOKIES

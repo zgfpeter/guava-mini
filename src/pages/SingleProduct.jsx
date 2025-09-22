@@ -1,4 +1,4 @@
-import Navbar from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faA, faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +12,7 @@ export default function SingleProduct({}) {
   const [cart, setCart] = useLocalStorage("cart", []);
   const [added, setAdded] = useState(false);
   const [openSizes, setOpenSizes] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(null);
+  const [similarProducts, setSimilarProducts] = useState([]);
   const [shareOpen, setShareOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -28,7 +28,12 @@ export default function SingleProduct({}) {
         const data = await response.json();
         const found = data.find((p) => String(p.id) === id);
 
+        const similar = data.filter(
+          (p) => String(p.category) === found.category
+        );
+
         setProduct(found);
+        setSimilarProducts(similar);
       } catch (err) {
         console.log("Error fetching product");
       }
@@ -45,7 +50,7 @@ export default function SingleProduct({}) {
   const confirAddToCart = (size) => {
     const productWithSize = { ...product, size };
     setCart([...cart, productWithSize]);
-    setSelectedSize(size);
+
     setAdded(true);
     setOpenSizes(false);
 
@@ -58,13 +63,13 @@ export default function SingleProduct({}) {
     setShowDetails((prev) => !prev);
   };
 
-  const similarProducts = () => {};
+  const handleSimilarProducts = () => {};
 
   //product hasn't loaded yet...
   if (!product) {
     return (
       <div>
-        <Navbar />
+        <Header />
         <main className="min-h-screen flex items-center justify-center">
           <p>Loading product...</p>
         </main>
@@ -75,8 +80,8 @@ export default function SingleProduct({}) {
 
   return (
     <div>
-      <Navbar />
-      <main className="min-h-screen mb-20">
+      <Header />
+      <main className="min-h-screen">
         <article className="relative flex flex flex-col aspect-[4/5]">
           <img
             src={product.image}
@@ -130,6 +135,14 @@ export default function SingleProduct({}) {
               incidunt modi cum!
             </div>
           )}
+
+          <button
+            className="pl-3 mt-5 pb-3 flex items-center gap-1 hover:cursor-pointer"
+            onClick={() => setShareOpen(true)}
+          >
+            <FontAwesomeIcon icon={faArrowUpFromBracket} />
+            Share
+          </button>
           {shareOpen && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/40">
               <div className="bg-white p-5 rounded-lg shadow-lg w-80">
@@ -163,18 +176,26 @@ export default function SingleProduct({}) {
               </div>
             </div>
           )}
-
-          <button
-            className="pl-3 mt-5 pb-3 flex items-center gap-1 hover:cursor-pointer"
-            onClick={() => setShareOpen(true)}
-          >
-            <FontAwesomeIcon icon={faArrowUpFromBracket} />
-            Share
-          </button>
         </article>
-        <section className="mt-20">
-          <h2 className="text-center p-3">Similar Products</h2>
-          <div className="">{similarProducts()}</div>
+        <section className="my-20 overflow-x-auto">
+          <h2 className="text-center mb-10 text-xs">SIMILAR PRODUCTS</h2>
+          {similarProducts && (
+            <ul className="flex w-max gap-2">
+              {similarProducts.map((p, i) => (
+                <li
+                  key={i}
+                  className="relative h-50 w-50 flex-shrink-0 overflow-hidden"
+                >
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-emerald-800 opacity-0 hover:opacity-30 transition-opacity hover:cursor-pointer "></div>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </main>
       <Footer />

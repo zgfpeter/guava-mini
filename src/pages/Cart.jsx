@@ -1,4 +1,4 @@
-import Navbar from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import useLocalStorage from "../components/useLocalStorage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +29,7 @@ export default function Cart() {
 
   return (
     <div>
-      <Navbar />
+      <Header />
       <main className="min-h-[50vh]">
         <h1 className="m-5">Cart ({cart.length})</h1>
         <section className="grid p-5 gap-5">

@@ -1,11 +1,11 @@
 import ContactForm from "../components/ContactForm";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 export default function Contact() {
   return (
     <div>
-      <Navbar />
+      <Header />
       <h1 className="p-5 text-s mt-5 text-center text-cyan-900">
         Before contacting us,
         <br /> please make sure to check out our <br />

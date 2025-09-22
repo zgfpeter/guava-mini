@@ -1,4 +1,4 @@
-import Navbar from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Select from "react-select";
 import { useState, useEffect } from "react";
@@ -42,7 +42,7 @@ export default function Payment() {
   };
   return (
     <section>
-      <Navbar />
+      <Header />
 
       <h1 className="mt-10 mb-2 mx-5 font-bold text-[0.9em] text-center">
         PAYMENT DETAILS

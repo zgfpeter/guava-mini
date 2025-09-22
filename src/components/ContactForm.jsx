@@ -25,7 +25,7 @@ export default function ContactForm() {
       newErrors.contact_lastName = "Last name is required";
     if (!contactForm.contact_email)
       newErrors.contact_email = "Email is required";
-    else if (!emailRegex.test(contactForm.contact_email))
+    else if (!email.test(contactForm.contact_email))
       newErrors.contact_email = "Email is invalid";
     if (!contactForm.contact_userMessage)
       newErrors.contact_userMessage = "Message cannot be empty";

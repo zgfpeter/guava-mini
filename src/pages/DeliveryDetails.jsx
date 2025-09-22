@@ -1,4 +1,4 @@
-import Navbar from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -18,7 +18,7 @@ export default function DeliveryDetails() {
   };
   return (
     <section>
-      <Navbar />
+      <Header />
       <h1 className="mt-10 mb-2 mx-5 font-bold text-[0.9em] text-center">
         DELIVERY DETAILS
       </h1>

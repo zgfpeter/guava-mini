@@ -1,29 +1,29 @@
 [
   {
     "id": 1,
-    "title": "Men's Floral T-Shirt",
-    "category": "Tops",
+    "title": "Men's Long Sleeve Shirt",
+    "category": "FORMAL",
+    "gender":"Men",
     "colors": ["Grey", "White"],
     "sizes": ["S", "M", "L", "XL"],
-    "price": 24.99,
-    "brand": "Urban Style",
+    "price": 44.99,
     "material": "100% Cotton",
-    "sku": "TSHIRT-FLRL-001",
+    "sku": "M-SHRT-001",
     "stock": { "S": 10, "M": 8, "L": 5, "XL": 3 },
     "rating": 4.4,
     "reviewsCount": 87,
-    "image": "https://images.unsplash.com/photo-1519741497674-611481863552"
+    "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157"
   },
   {
     "id": 2,
-    "title": "Women's Leather Handbag",
-    "category": "Accessories",
+    "title": "Women's Print T-Shirt",
+    "category": "T-SHIRT",
+    "gender":"Women",
     "colors": ["Black", "Brown"],
-    "sizes": ["One Size"],
+    "sizes": ["S","M","L"],
     "price": 89.99,
-    "brand": "Elegance Co.",
-    "material": "Genuine Leather",
-    "sku": "HANDBAG-LTHR-002",
+    "material": "100% Cotton",
+    "sku": "W-TSHIRT-LTHR-002",
     "stock": { "Black": 6, "Brown": 4 },
     "rating": 4.7,
     "reviewsCount": 142,
@@ -32,22 +32,24 @@
   {
     "id": 3,
     "title": "Running Sneakers",
-    "category": "Footwear",
+    "category": "FOOTWEAR",
     "colors": ["Blue", "White"],
     "sizes": [7, 8, 9, 10, 11, 12],
     "price": 69.99,
+    "gender":"Men",
     "brand": "SwiftRun",
     "material": "Mesh Upper, Rubber Sole",
     "sku": "SNEAKERS-RUN-003",
     "stock": { "7": 12, "8": 15, "9": 10, "10": 6, "11": 3, "12": 2 },
     "rating": 4.6,
     "reviewsCount": 256,
-    "image": "https://images.unsplash.com/photo-1519741497674-611481863552"
+    "image": "https://images.unsplash.com/photo-1597892657493-6847b9640bac"
   },
   {
     "id": 4,
     "title": "Casual Denim Jacket",
-    "category": "Outerwear",
+    "category": "OUTERWEAR",
+    "gender":"Women",
     "colors": ["Blue", "Light Blue"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 59.99,
@@ -57,12 +59,13 @@
     "stock": { "S": 4, "M": 8, "L": 6, "XL": 2 },
     "rating": 4.5,
     "reviewsCount": 91,
-    "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
+    "image": "https://images.unsplash.com/photo-1543076447-215ad9ba6923"
   },
   {
     "id": 5,
-    "title": "Classic Black Dress",
-    "category": "Dresses",
+    "title": "Classic Floral Dress",
+    "category": "DRESSES",
+    "gender":"Women",
     "colors": ["Black"],
     "sizes": ["XS", "S", "M", "L"],
     "price": 74.99,
@@ -76,14 +79,14 @@
   },
   {
     "id": 6,
-    "title": "Men's Slim Fit Suit",
-    "category": "Formalwear",
+    "title": "Leather Jacket",
+    "category": "FORMAL",
+    "gender":"Men",
     "colors": ["Navy", "Grey"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 149.99,
     "brand": "SharpWear",
     "material": "Wool Blend",
-    "sku": "SUIT-SLIM-006",
     "stock": { "S": 3, "M": 6, "L": 5, "XL": 2 },
     "rating": 4.6,
     "reviewsCount": 74,
@@ -91,14 +94,13 @@
   },
   {
     "id": 7,
-    "title": "Women's Summer Hat",
-    "category": "Accessories",
-    "colors": ["Beige", "Brown"],
-    "sizes": ["One Size"],
+    "title": "Basic T-Shirt",
+    "category": "ACCESSORIES",
+    "gender":"Men",
+    "colors": ["Beige", "White"],
+    "sizes": ["S","M","L"],
     "price": 29.99,
-    "brand": "Sunny Days",
-    "material": "Woven Straw",
-    "sku": "HAT-SUMMER-007",
+    "material": "100% Cotton",
     "stock": { "Beige": 8, "Brown": 5 },
     "rating": 4.3,
     "reviewsCount": 63,
@@ -107,22 +109,22 @@
   {
     "id": 8,
     "title": "Leather Boots",
-    "category": "Footwear",
+    "category": "FOOTWEAR",
+    "gender":"Men",
     "colors": ["Brown", "Black"],
     "sizes": [38, 39, 40, 41, 42, 43, 44],
     "price": 119.99,
-    "brand": "Urban Gear",
     "material": "Genuine Leather",
-    "sku": "BOOTS-LTHR-008",
     "stock": { "38": 2, "39": 4, "40": 6, "41": 5, "42": 3, "43": 2, "44": 1 },
     "rating": 4.7,
     "reviewsCount": 112,
-    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+    "image": "https://images.unsplash.com/photo-1534233650908-b471f2350922"
   },
   {
     "id": 9,
     "title": "Plaid Scarf",
-    "category": "Accessories",
+    "category": "ACCESSORIES",
+    "gender":"Women",
     "colors": ["Red", "Black"],
     "sizes": ["One Size"],
     "price": 19.99,
@@ -132,42 +134,42 @@
     "stock": { "Red": 12, "Black": 9 },
     "rating": 4.2,
     "reviewsCount": 56,
-    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+    "image": "https://images.unsplash.com/photo-1666037747129-96b1ea0b6812"
   },
   {
     "id": 10,
     "title": "Men's Polo Shirt",
-    "category": "Tops",
+    "category": "TOPS",
+    "gender":"Men",
     "colors": ["White", "Navy"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 34.99,
     "brand": "Classic Fit",
     "material": "Cotton Blend",
-    "sku": "POLO-MEN-010",
     "stock": { "S": 7, "M": 10, "L": 6, "XL": 3 },
     "rating": 4.3,
     "reviewsCount": 84,
-    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"
+    "image": "https://images.unsplash.com/photo-1625910513413-c23b8bb81cba"
   },
   {
     "id": 11,
     "title": "Women's High Heels",
-    "category": "Footwear",
+    "category": "FOOTWEAR",
+    "gender":"Women",
     "colors": ["Red", "Black"],
     "sizes": [36, 37, 38, 39, 40, 41],
     "price": 79.99,
-    "brand": "Elegance Co.",
     "material": "Faux Leather",
-    "sku": "HEELS-HIGH-011",
     "stock": { "36": 2, "37": 4, "38": 5, "39": 3, "40": 2, "41": 1 },
     "rating": 4.5,
     "reviewsCount": 134,
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+    "image": "https://images.unsplash.com/photo-1610398752800-146f269dfcc8"
   },
   {
     "id": 12,
     "title": "Men's Casual Hoodie",
-    "category": "Tops",
+    "category": "TOPS",
+    "gender":"Men",
     "colors": ["Grey", "Black"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 44.99,
@@ -177,27 +179,28 @@
     "stock": { "S": 6, "M": 9, "L": 5, "XL": 2 },
     "rating": 4.6,
     "reviewsCount": 177,
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+    "image": "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e"
   },
   {
     "id": 13,
     "title": "Women's Trench Coat",
-    "category": "Outerwear",
+    "category": "OUTERWEAR",
+    "gender":"Women",
     "colors": ["Beige", "Khaki"],
     "sizes": ["S", "M", "L"],
     "price": 129.99,
-    "brand": "Classic Coats",
+    "brand":"Unbranded",
     "material": "Cotton Blend",
-    "sku": "COAT-TRENCH-013",
     "stock": { "S": 4, "M": 6, "L": 2 },
     "rating": 4.7,
     "reviewsCount": 92,
-    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+    "image": "https://plus.unsplash.com/premium_photo-1661768636400-35e73ae2e3b6"
   },
   {
     "id": 14,
     "title": "Baseball Cap",
-    "category": "Accessories",
+    "category": "ACCESSORIES",
+    "gender":"Unisex",
     "colors": ["Black", "White"],
     "sizes": ["One Size"],
     "price": 14.99,
@@ -207,12 +210,13 @@
     "stock": { "Black": 15, "White": 12 },
     "rating": 4.1,
     "reviewsCount": 44,
-    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"
+    "image": "https://images.unsplash.com/photo-1720534490358-bc2ad29d51d5"
   },
   {
     "id": 15,
     "title": "Men's Chinos",
-    "category": "Bottoms",
+    "category": "BOTTOMS",
+    "gender":"Men",
     "colors": ["Beige", "Navy"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 39.99,
@@ -222,12 +226,13 @@
     "stock": { "S": 5, "M": 8, "L": 7, "XL": 4 },
     "rating": 4.3,
     "reviewsCount": 65,
-    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"
+    "image": "https://images.unsplash.com/photo-1674697711016-3a2ef6d9e573"
   },
   {
     "id": 16,
     "title": "Women's Maxi Skirt",
-    "category": "Bottoms",
+    "category": "BOTTOMS",
+    "gender":"Women",
     "colors": ["Green", "Black"],
     "sizes": ["S", "M", "L"],
     "price": 49.99,
@@ -237,13 +242,14 @@
     "stock": { "S": 6, "M": 5, "L": 3 },
     "rating": 4.4,
     "reviewsCount": 52,
-    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+    "image": "https://images.unsplash.com/photo-1646054224885-f978f5798312"
   },
   {
     "id": 17,
     "title": "Men's Leather Jacket",
-    "category": "Outerwear",
+    "category": "OUTERWEAR",
     "colors": ["Black"],
+    "gender":"Men",
     "sizes": ["M", "L", "XL"],
     "price": 159.99,
     "brand": "Urban Gear",
@@ -252,12 +258,13 @@
     "stock": { "M": 3, "L": 4, "XL": 2 },
     "rating": 4.8,
     "reviewsCount": 103,
-    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+    "image": "https://images.unsplash.com/photo-1652524408446-1c306e718056"
   },
   {
     "id": 18,
     "title": "Women's Blouse",
-    "category": "Tops",
+    "category": "TOPS",
+    "gender":"Women",
     "colors": ["White", "Blue"],
     "sizes": ["S", "M", "L"],
     "price": 29.99,
@@ -267,13 +274,13 @@
     "stock": { "S": 7, "M": 6, "L": 5 },
     "rating": 4.2,
     "reviewsCount": 59,
-    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+    "image": "https://images.unsplash.com/photo-1584030373081-f37b7bb4fa8e"
   },
 
   {
     "id": 19,
     "title": "Men's Sports Shorts",
-    "category": "Bottoms",
+    "category": "BOTTOMS",
     "colors": ["Black", "Grey"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 29.99,
@@ -283,13 +290,14 @@
     "stock": { "S": 8, "M": 10, "L": 7, "XL": 4 },
     "rating": 4.5,
     "reviewsCount": 68,
-    "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2"
+    "image": "https://images.unsplash.com/photo-1525916801717-9405b53a3246"
   },
   {
     "id": 20,
     "title": "Women's Yoga Pants",
-    "category": "Bottoms",
-    "colors": ["Black", "Purple"],
+    "category": "BOTTOMS",
+    "gender":"Women",
+    "colors": ["Black", "Purple","Burgundy"],
     "sizes": ["XS", "S", "M", "L"],
     "price": 39.99,
     "brand": "FlexFit",
@@ -298,27 +306,28 @@
     "stock": { "XS": 6, "S": 9, "M": 7, "L": 4 },
     "rating": 4.7,
     "reviewsCount": 184,
-    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+    "image": "https://images.unsplash.com/photo-1569990823958-a33f4125197a"
   },
   {
     "id": 21,
-    "title": "Men's Running Jacket",
-    "category": "Outerwear",
+    "title": "Classic Socks",
+    "category": "OUTERWEAR",
+    "gender":"Unisex",
     "colors": ["Black", "Neon Green"],
     "sizes": ["S", "M", "L", "XL"],
-    "price": 69.99,
-    "brand": "SwiftRun",
+    "price": 19.99,
+    "brand": "Unbranded",
     "material": "Lightweight Polyester",
     "sku": "JACKET-RUN-021",
     "stock": { "S": 5, "M": 6, "L": 4, "XL": 2 },
     "rating": 4.6,
     "reviewsCount": 92,
-    "image": "https://images.unsplash.com/photo-1528701800489-20be9cdbb38f"
+    "image": "https://images.unsplash.com/photo-1640026199235-c24aa417b552"
   },
   {
     "id": 22,
     "title": "Women's Cardigan",
-    "category": "Tops",
+    "category": "TOPS",
     "colors": ["Beige", "Grey"],
     "sizes": ["S", "M", "L"],
     "price": 54.99,
@@ -328,12 +337,13 @@
     "stock": { "S": 5, "M": 7, "L": 4 },
     "rating": 4.4,
     "reviewsCount": 73,
-    "image": "https://images.unsplash.com/photo-1531163941438-66d7c1a1a24d"
+    "image": "https://images.unsplash.com/photo-1582599926390-b4350d5dcd6b"
   },
   {
     "id": 23,
     "title": "Men's Formal Shoes",
-    "category": "Footwear",
+    "category": "FOOTWEAR",
+    "gender":"Men",
     "colors": ["Brown", "Black"],
     "sizes": [40, 41, 42, 43, 44, 45],
     "price": 99.99,
@@ -343,12 +353,13 @@
     "stock": { "40": 3, "41": 4, "42": 6, "43": 5, "44": 2, "45": 1 },
     "rating": 4.5,
     "reviewsCount": 101,
-    "image": "https://images.unsplash.com/photo-1600180758895-f0a4f9db0f71"
+    "image": "https://plus.unsplash.com/premium_photo-1726862590258-be23cc00b55e"
   },
   {
     "id": 24,
     "title": "Women's Ankle Boots",
-    "category": "Footwear",
+    "category": "FOOTWEAR",
+    "gender":"Men",
     "colors": ["Black", "Tan"],
     "sizes": [36, 37, 38, 39, 40, 41],
     "price": 89.99,
@@ -358,12 +369,13 @@
     "stock": { "36": 4, "37": 6, "38": 5, "39": 3, "40": 2, "41": 1 },
     "rating": 4.6,
     "reviewsCount": 119,
-    "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
+    "image": "https://images.unsplash.com/photo-1521161235081-1f79d1d08236"
   },
   {
     "id": 25,
     "title": "Men's Cargo Pants",
-    "category": "Bottoms",
+    "category": "BOTTOMS",
+    "gender":"Men",
     "colors": ["Olive", "Khaki"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 49.99,
@@ -373,13 +385,14 @@
     "stock": { "S": 6, "M": 8, "L": 5, "XL": 3 },
     "rating": 4.3,
     "reviewsCount": 77,
-    "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070"
+    "image": "https://images.unsplash.com/photo-1548883354-7622d03aca27"
   },
   {
     "id": 26,
     "title": "Women's Knit Sweater",
-    "category": "Tops",
-    "colors": ["Pink", "Cream"],
+    "category": "TOPS",
+    "gende":"Women",
+    "colors": ["Red", "Cream"],
     "sizes": ["S", "M", "L"],
     "price": 44.99,
     "brand": "CozyWear",
@@ -393,7 +406,8 @@
   {
     "id": 27,
     "title": "Men's Graphic Tee",
-    "category": "Tops",
+    "category": "TOPS",
+    "gender":"Men",
     "colors": ["Black", "White"],
     "sizes": ["S", "M", "L", "XL"],
     "price": 24.99,
@@ -403,12 +417,13 @@
     "stock": { "S": 9, "M": 10, "L": 8, "XL": 5 },
     "rating": 4.2,
     "reviewsCount": 94,
-    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"
+    "image": "https://images.unsplash.com/photo-1585032767761-878270336a0b"
   },
   {
     "id": 28,
     "title": "Women's Denim Jeans",
-    "category": "Bottoms",
+    "category": "BOTTOMS",
+    "gender":"Women",
     "colors": ["Blue", "Black"],
     "sizes": ["XS", "S", "M", "L"],
     "price": 59.99,
@@ -418,12 +433,13 @@
     "stock": { "XS": 5, "S": 7, "M": 6, "L": 4 },
     "rating": 4.6,
     "reviewsCount": 132,
-    "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
+    "image": "https://images.unsplash.com/photo-1633700720785-32a7977a9ef1"
   },
   {
     "id": 29,
-    "title": "Men's Puffer Jacket",
-    "category": "Outerwear",
+    "title": "Women's Puffer Jacket",
+    "category": "OUTERWEAR",
+    "gender":"Women",
     "colors": ["Black", "Grey"],
     "sizes": ["M", "L", "XL"],
     "price": 129.99,
@@ -433,12 +449,13 @@
     "stock": { "M": 4, "L": 3, "XL": 2 },
     "rating": 4.8,
     "reviewsCount": 97,
-    "image": "https://images.unsplash.com/photo-1528701800489-20be9cdbb38f"
+    "image": "https://images.unsplash.com/photo-1548624313-0396c75e4b1a"
   },
   {
     "id": 30,
     "title": "Women's Cocktail Dress",
-    "category": "Dresses",
+    "category": "DRESSES",
+    "gender":"Women",
     "colors": ["Red", "Black"],
     "sizes": ["XS", "S", "M", "L"],
     "price": 99.99,
@@ -448,6 +465,6 @@
     "stock": { "XS": 3, "S": 5, "M": 4, "L": 2 },
     "rating": 4.9,
     "reviewsCount": 143,
-    "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+    "image": "https://images.unsplash.com/photo-1533659828870-95ee305cee3e"
   }
 ]

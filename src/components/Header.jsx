@@ -74,8 +74,8 @@ export default function Navbar() {
       </div>
       <nav className="flex gap-3 items-center">
         {isSearchOpen && (
-          <div className="fixed bottom-0 left-0 right-0 top-18 bg-stone-50 p-5">
-            <div className="flex">
+          <div className="fixed flex flex-col items-center bottom-0 left-0 right-0 top-18 bg-stone-50 p-5">
+            <div className="flex max-w-xl">
               <input
                 ref={inputRef}
                 type="text"
@@ -99,7 +99,9 @@ export default function Navbar() {
           <FontAwesomeIcon icon={faSearch} />
         </button>
         <button aria-label="open user profile" className="hover:cursor-pointer">
-          <FontAwesomeIcon icon={faUser} />
+          <Link to="/userProfile">
+            <FontAwesomeIcon icon={faUser} />
+          </Link>
         </button>
         <Link
           to="/cart"

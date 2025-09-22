@@ -1,7 +1,7 @@
-export default function PromoBanner({ headingLevel: Heading, bg_color }) {
+export default function PromoBanner({ headingLevel: Heading, bgColor }) {
   return (
     <div
-      className={`relative grid justify-items-center p-5 gap-3 ${bg_color} text-neutral-100`}
+      className={`relative grid justify-items-center p-5 gap-3 ${bgColor} text-neutral-100`}
     >
       <Heading> BACK TO WORK UP TO 85% OFF</Heading>
       <p className="text-neutral-400">On your everyday essentials</p>

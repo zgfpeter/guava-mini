@@ -10,6 +10,11 @@ export default function ProductCard({
   colors,
   image,
 }) {
+  const formatPrice = (value) =>
+    new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+    }).format(value);
   return (
     <div>
       <Link to={`/product/${id}`} className="flex flex-col gap-y-2 gap-x-3">
@@ -30,7 +35,7 @@ export default function ProductCard({
               </div>
             )}
           </div>
-          <p className="w-full p-2">€ {price}</p>
+          <p className="w-full p-2">{formatPrice(price)}</p>
 
           <button className="pr-5 justify-self-start pl-3 pt-2 pb-2 text-cyan-700 text-lg mb-2 hover:text-teal-600 hover:cursor-pointer">
             <FontAwesomeIcon icon={faCartShopping} />

@@ -4,9 +4,9 @@ export default function Footer() {
     <footer className="grid gap-5 p-3 text-xs mt-auto">
       <nav
         aria-label="Social Media Links"
-        className="sm_links flex flex-wrap p-5 gap-4"
+        className="max-w-xl w-full justify-self-center border-b border-stone-200"
       >
-        <ul className="flex flex-wrap gap-4">
+        <ul className="flex justify-between flex-wrap w-full max-w-xxl p-5">
           <li>
             <a
               href="https://www.instagram.com"
@@ -59,8 +59,8 @@ export default function Footer() {
           </li>
         </ul>
       </nav>
-      <nav>
-        <ul className="footer_about grid gap-4">
+      <nav aria-label="Footer links">
+        <ul className="grid gap-5">
           <li>
             <Link to="/about" className="hover:underline">
               ABOUT

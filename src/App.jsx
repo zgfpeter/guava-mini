@@ -12,6 +12,8 @@ import Cart from "./pages/Cart.jsx";
 import { useEffect } from "react";
 import Payment from "./pages/Payment.jsx";
 import DeliveryDetails from "./pages/DeliveryDetails.jsx";
+import UserProfile from "./pages/UserProfile.jsx";
+import UserRegistration from "./pages/UserRegistration.jsx";
 
 function App() {
   useEffect(() => {
@@ -34,6 +36,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/deliveryDetails" element={<DeliveryDetails />} />
+        <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/userRegistration" element={<UserRegistration />} />
       </Routes>
     </>
   );
