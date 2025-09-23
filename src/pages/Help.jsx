@@ -13,7 +13,7 @@ import { useState } from "react";
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
   const faq_answers_classes =
-    "pt-15 pb-15 pr-3 pl-3 items-center h-full border-[0.5px] border-black border-collapse border-l-0 text-center text-s bg-stone-100 hover:cursor-pointer hover:bg-stone-200";
+    "h-40 w-full md:w-112 p-3 border-[0.5px] border-black border-collapse flex gap-2 items-center place-content-center text-s bg-stone-100 hover:cursor-pointer hover:bg-stone-200 md:flex-col ";
   const faqs = [
     {
       question: "Where is my order?",
@@ -52,7 +52,7 @@ export default function Faq() {
       <h1 className="p-5 mb-10 bg-amber-700 text-white font-bold w-full text-center font-[DM_Serif_Display]">
         HELP
       </h1>
-      <main className="flex-grow min-h-150 flex flex-col">
+      <main className="flex-grow flex flex-col self-center w-full md:w-auto">
         <h2 className="p-5">FREQUENTLY ASKED QUESTIONS</h2>
         <ul className="flex gap-3 pl-5 pr-5 pb-5 mb-5 flex-col text-stone-600">
           {faqs.map((faq, index) => (
@@ -73,36 +73,28 @@ export default function Faq() {
         </ul>
 
         <h2 className="p-5">CATEGORIES</h2>
-        <table className="text-stone-600 text-[0.9em]">
-          <tbody>
-            <tr>
-              <td className={faq_answers_classes}>
-                <FontAwesomeIcon icon={faTruckFast} className="pr-2" />
-                Delivery and order tracking
-              </td>
-              <td className={faq_answers_classes}>
-                <FontAwesomeIcon icon={faRotateLeft} className="pr-2" />
-                Returns, exchanges and refunds
-              </td>
-            </tr>
-            <tr>
-              <td className={faq_answers_classes}>
-                <FontAwesomeIcon icon={faCreditCard} className="pr-2" />
-                Payment methods
-              </td>
-              <td className={faq_answers_classes}>
-                <FontAwesomeIcon icon={faShirt} className="pr-2" />
-                Size information
-              </td>
-            </tr>
-            <tr>
-              <td className={faq_answers_classes}>
-                <FontAwesomeIcon icon={faUser} className="pr-2" />
-                Personal data
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 text-stone-600">
+          <div className={faq_answers_classes}>
+            <FontAwesomeIcon icon={faTruckFast} className="pr-2" />
+            Delivery and order tracking
+          </div>
+          <div className={faq_answers_classes}>
+            <FontAwesomeIcon icon={faRotateLeft} className="pr-2" />
+            Returns, exchanges and refunds
+          </div>
+          <div className={faq_answers_classes}>
+            <FontAwesomeIcon icon={faCreditCard} className="pr-2" />
+            Payment methods
+          </div>
+          <div className={faq_answers_classes}>
+            <FontAwesomeIcon icon={faShirt} className="pr-2" />
+            Size information
+          </div>
+          <div className={faq_answers_classes}>
+            <FontAwesomeIcon icon={faUser} className="pr-2" />
+            Personal data
+          </div>
+        </div>
       </main>
       <Footer className="" />
     </div>

@@ -22,24 +22,38 @@ export default function DeliveryDetails() {
       <h1 className="mt-10 mb-2 mx-5 font-bold text-[0.9em] text-center">
         DELIVERY DETAILS
       </h1>
-      <main className="min-h-screen">
+      <main className="w-full max-w-xl justify-self-center">
         <form
           action=""
-          className="grid gap-5 p-5 border-1 border-t-0 border-stone-300"
+          className="grid gap-5 p-10 border-1 border-t-0 border-stone-300"
         >
+          <label htmlFor="firstName" className="sr-only">
+            First name
+          </label>
           <input
+            id="firstName"
             type="text"
             required
             placeholder="First name"
             className="border border-[#ccc] p-2"
           />
+          <label htmlFor="lastName" className="sr-only">
+            Last name
+          </label>
+
           <input
+            id="lastName"
             type="text"
             required
             placeholder="Last name"
             className="border border-[#ccc] p-2"
           />
+          <label htmlFor="email" className="sr-only">
+            Email
+          </label>
+
           <input
+            id="email"
             type="email"
             required
             placeholder="E-mail"
@@ -85,24 +99,40 @@ export default function DeliveryDetails() {
             }}
             isSearchable
           />
+          <label htmlFor="address" className="sr-only">
+            Address
+          </label>
+
           <input
+            id="address"
             required
             type="text"
             placeholder="Address"
             className="border border-[#ccc] p-2"
           />
+          <label htmlFor="postcode" className="sr-only">
+            Postcode
+          </label>
           <input
+            id="postcode"
             required
             type="text"
             placeholder="Postcode"
             className="border border-[#ccc] p-2"
           />
+          <label htmlFor="townCity" className="sr-only">
+            Town/City
+          </label>
           <input
+            id="townCity"
             required
             type="text"
             placeholder="Town/City"
             className="border border-[#ccc] p-2"
           />
+          <label htmlFor="countyState" className="sr-only">
+            County/State
+          </label>
           <input
             required
             type="text"
@@ -110,6 +140,7 @@ export default function DeliveryDetails() {
             className="border border-[#ccc] p-2"
           />
           <button
+            aria-label="Continue to payment"
             onSubmit={() => {
               validateForm(e);
             }}

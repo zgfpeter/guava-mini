@@ -59,7 +59,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="shadow-md/30 flex flex-col gap-5 p-5"
+      className="shadow-md/30 flex flex-col gap-5 p-5 w-full"
     >
       <input
         type="text"

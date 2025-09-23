@@ -70,26 +70,14 @@ export default function PrivacyAndCookies() {
           <h3 className="text-xl font-semibold mt-4">Your Rights</h3>
           <p className="text-[0.9em] bg-stone-100 p-5 text-stone-600">
             You can request access to, correction, or deletion of your personal
-            information at any time by contacting us at{" "}
-            <a href="mailto:[Insert Email]" className="text-blue-600 underline">
-              [Insert Email]
-            </a>
-            .
+            information at any time by contacting us.
           </p>
 
           <h3 className="text-xl font-semibold mt-4">Changes to This Policy</h3>
           <p className="text-[0.9em] bg-stone-100 p-5 text-stone-600">
             We may update this policy from time to time. Changes will be posted
-            on this page.
-          </p>
-
-          <h3 className="text-xl font-semibold mt-4">Contact Us</h3>
-          <p className="text-[0.9em] bg-stone-100 p-5 text-stone-600">
-            If you have any questions about this policy, please contact us at{" "}
-            <a href="mailto:[Insert Email]" className="text-blue-600 underline">
-              [Insert Email]
-            </a>
-            .
+            on this page. If you have any questions about this policy, please
+            contact us.
           </p>
         </main>
       </main>

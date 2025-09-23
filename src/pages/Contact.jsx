@@ -14,9 +14,9 @@ export default function Contact() {
         </Link>{" "}
         page
         <br />
-        for common questions.
+        for frequently asked questions.
       </h1>
-      <main className="flex-grow min-h-100 p-3">
+      <main className="p-3 flex justify-center items-center w-full md:max-w-3xl mx-auto">
         <ContactForm />
       </main>
 

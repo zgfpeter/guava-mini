@@ -8,10 +8,10 @@ export default function LandingPage() {
     // i could use a div, but if i don't need styling on that div, i can use React.Fragment
     <React.Fragment>
       <Header />
-      <main className="relative">
-        <section className="relative">
+      <main className="min-h-screen relative">
+        <section className="flex relative place-content-center">
           <img
-            className="w-full h-auto object-cover"
+            className="w-full h-screen object-cover"
             src="https://images.unsplash.com/photo-1738248000018-7b38dcecdb36"
             alt=""
           />
@@ -20,7 +20,7 @@ export default function LandingPage() {
             <Link
               to="/home"
               aria-label="Shop new arrivals"
-              className="text-white font-bold tracking-[0.5em] bg-emerald-900/50 p-3 rounded hover:bg-emerald-900/80 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-emerald-700"
+              className="text-white text-2xl font-bold tracking-[0.5em] bg-emerald-900/80 p-3 rounded hover:bg-emerald-900/80 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-emerald-700"
             >
               NEW <br /> ARRIVALS
             </Link>

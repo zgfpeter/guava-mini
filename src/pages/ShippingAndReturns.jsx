@@ -14,7 +14,7 @@ export default function shippingAndReturns() {
       <h1 className="p-5 bg-amber-700 text-white font-bold w-full text-center font-[DM_Serif_Display]">
         SHIPPING & RETURNS
       </h1>
-      <main className="flex-grow min-h-100 p-3">
+      <main className="flex-grow min-h-100 p-3 md:max-w-3xl self-center">
         <h2 className="text-[1.5em] pb-5 pt-5 flex gap-2 items-center">
           <FontAwesomeIcon icon={faTruck} className="text-sky-800" />
           Shipping

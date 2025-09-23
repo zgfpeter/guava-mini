@@ -4,7 +4,7 @@ export default function PromoBanner({ headingLevel: Heading, bgColor }) {
       className={`relative grid justify-items-center p-5 gap-3 ${bgColor} text-neutral-100`}
     >
       <Heading> BACK TO WORK UP TO 85% OFF</Heading>
-      <p className="text-neutral-400">On your everyday essentials</p>
+      <p>On your everyday essentials</p>
       <a
         href="/currentSale"
         className="hover:cursor-pointer underline-offset-8 hover:underline"

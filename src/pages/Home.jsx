@@ -104,7 +104,7 @@ export default function Home() {
           }}
           selectedCategory={selectedCategory}
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
           {loading && (
             <p className="sr-only" role="status" aria-live="polite">
               Loading products...
@@ -114,8 +114,8 @@ export default function Home() {
             ? Array.from({ length: 12 }).map((_, idx) => (
                 <SkeletonCard key={idx} />
               ))
-            : visibleProducts.map((product) => (
-                <ProductCard key={product.id} {...product} />
+            : visibleProducts.map((product, idx) => (
+                <ProductCard key={product.id} {...product} eager={idx === 0} />
               ))}
 
           {!loading && filteredProducts.length === 0 && (

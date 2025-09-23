@@ -93,19 +93,23 @@ export default function Navbar() {
         )}
         <button
           aria-label="Search for products"
-          className="hover:cursor-pointer"
+          className="hover:cursor-pointer p-3"
           onClick={searchProducts}
         >
           <FontAwesomeIcon icon={faSearch} />
         </button>
-        <button aria-label="open user profile" className="hover:cursor-pointer">
-          <Link to="/userProfile">
-            <FontAwesomeIcon icon={faUser} />
-          </Link>
-        </button>
+        <Link
+          to="/userProfile"
+          aria-label="open user profile"
+          className="hover:cursor-pointer p-3"
+        >
+          <FontAwesomeIcon icon={faUser} />
+        </Link>
+
         <Link
           to="/cart"
-          className="hover:cursor-pointer flex items-center gap-1 "
+          aria-label="Go to cart"
+          className="hover:cursor-pointer flex items-center gap-1 p-3 "
         >
           <FontAwesomeIcon icon={faCartShopping} />
           {cart.length}
