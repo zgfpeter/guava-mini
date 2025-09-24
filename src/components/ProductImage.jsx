@@ -11,7 +11,7 @@ export default function ProductImage({ src, alt, className = "", eager }) {
       alt={alt}
       className={`w-full h-full object-cover ${className}`}
       loading={eager ? "eager" : "lazy"}
-      fetchpriority={eager ? "high" : "auto"}
+      fetchPriority={eager ? "high" : "auto"}
     />
   );
 }

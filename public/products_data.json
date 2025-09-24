@@ -389,9 +389,9 @@
   },
   {
     "id": 26,
-    "title": "Women's Knit Sweater",
-    "category": "TOPS",
-    "gende":"Women",
+    "title": "Women's Knit Sneakers",
+    "category": "FOOTWEAR",
+    "gender":"Women",
     "colors": ["Red", "Cream"],
     "sizes": ["S", "M", "L"],
     "price": 44.99,
@@ -466,5 +466,4 @@
     "rating": 4.9,
     "reviewsCount": 143,
     "image": "https://images.unsplash.com/photo-1533659828870-95ee305cee3e"
-  }
-]
+  }]

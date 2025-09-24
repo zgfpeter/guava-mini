@@ -13,7 +13,11 @@ import { useEffect } from "react";
 export default function Cart() {
   const [cart, setCart] = useLocalStorage("cart", []);
 
-  const totalPrice = cart.reduce((sum, product) => sum + product.price, 0);
+  //const totalPrice = cart.reduce((sum, product) => sum + product.price, 0);
+  const totalPrice = cart.reduce(
+    (sum, product) => sum + product.price * (product.quantity || 1),
+    0
+  );
 
   useEffect(() => {
     localStorage.setItem("cartTotal", totalPrice);
@@ -33,13 +37,13 @@ export default function Cart() {
     <div>
       <Header />
 
-      <main className="min-h-[50vh] p-5">
+      <main className="min-h-[50vh] p-5 md:max-w-[40%] mx-auto md:flex md:flex-col md:items-center mx-auto">
         <h1 id="cart-heading" tabIndex="-1" className="text-2xl font-bold mb-5">
           Cart ({cart.length})
         </h1>
 
         {cart.length > 0 ? (
-          <section className="grid gap-5">
+          <section className="grid gap-5 flex w-full">
             {cart.map((product) => (
               <article
                 key={product.id}
@@ -61,9 +65,11 @@ export default function Cart() {
                 </div>
                 <button
                   className="absolute right-0 top-0 p-2"
-                  aria-label={`Remove ${product.title} from cart`}
                   onClick={() => removeFromCart(product.id)}
                 >
+                  <span className="sr-only">
+                    Remove {product.title} from cart
+                  </span>
                   <FontAwesomeIcon
                     icon={faX}
                     className="text-red-500 hover:text-red-700 transition duration-300"
@@ -91,7 +97,7 @@ export default function Cart() {
 
               <Link
                 to="/deliveryDetails"
-                className="flex gap-2 items-center justify-center p-3 text-white bg-rose-700 rounded hover:bg-rose-800"
+                className="flex gap-2 items-center justify-center p-3 text-white bg-rose-700 rounded hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-500"
               >
                 CHECKOUT
                 <FontAwesomeIcon icon={faArrowRight} />

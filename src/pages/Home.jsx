@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from "../components/Footer.jsx";
 import { useEffect, useState, useMemo } from "react";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { useSearch } from "../context/SearchContext";
 
 // placeholder cards
 const SkeletonCard = () => (
@@ -21,6 +22,7 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [showScroll, setShowScroll] = useState(false);
   const [loading, setLoading] = useState(true);
+  const { searchTerm } = useSearch();
 
   // number of products currently visible
   const [visibleCount, setVisibleCount] = useState(12); // initial products to show
@@ -78,10 +80,25 @@ export default function Home() {
   // instead of recomputing, checks cache first for the given arguments
   // needed for large data, but for small data (<200 items?) React is usually faster /than the memo overhead
   const filteredProducts = useMemo(() => {
-    return selectedCategory !== "ALL"
-      ? products.filter((p) => p.category === selectedCategory)
-      : products;
-  }, [products, selectedCategory]);
+    let result =
+      selectedCategory !== "ALL"
+        ? products.filter((p) => p.category === selectedCategory)
+        : products;
+
+    if (searchTerm.trim()) {
+      result = result.filter((p) => {
+        const lowerSearch = searchTerm.toLowerCase();
+        return (
+          (typeof p.title === "string" &&
+            p.title.toLowerCase().includes(lowerSearch)) ||
+          (typeof p.category === "string" &&
+            p.category.toLowerCase().includes(lowerSearch))
+        );
+      });
+    }
+
+    return result;
+  }, [products, selectedCategory, searchTerm]);
 
   // get only currently visible products
   const visibleProducts = filteredProducts.slice(0, visibleCount);

@@ -4,7 +4,6 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import { getNames } from "country-list";
-import { Link } from "react-router-dom";
 
 import { useState } from "react";
 export default function DeliveryDetails() {
@@ -134,6 +133,7 @@ export default function DeliveryDetails() {
             County/State
           </label>
           <input
+            id="countyState"
             required
             type="text"
             placeholder="County/State"

@@ -2,6 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
+import { useSearch } from "../context/SearchContext";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import {
   faSeedling,
   faSearch,
@@ -14,6 +17,9 @@ import {
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { searchTerm, setSearchTerm } = useSearch();
+  const location = useLocation(); // get current path
+
   const inputRef = useRef(null);
   const burgerMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -29,7 +35,14 @@ export default function Navbar() {
     }
   }, [isSearchOpen]);
 
+  useEffect(() => {
+    if (location.pathname === "/landingPage") {
+      setSearchTerm(""); // reset search term when on homepage
+    }
+  }, [location.pathname, setSearchTerm]);
+
   const [cart] = useLocalStorage("cart", []);
+  const navigate = useNavigate();
 
   return (
     <header className="bg-white navbar_container flex items-center place-content-between p-5 sticky top-0 z-50">
@@ -75,20 +88,30 @@ export default function Navbar() {
       <nav className="flex gap-3 items-center">
         {isSearchOpen && (
           <div className="fixed flex flex-col items-center bottom-0 left-0 right-0 top-18 bg-stone-50 p-5">
-            <div className="flex max-w-xl">
+            <form
+              className="flex max-w-xl w-full"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setIsSearchOpen(false); // close overlay
+                navigate("/search"); // go to SearchResults page
+              }}
+            >
               <input
                 ref={inputRef}
                 type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search for products..."
                 className="border-1 p-3 w-full rounded-l focus:outline-none"
               />
               <button
+                type="submit"
                 aria-label="Search for products"
                 className="bg-emerald-800 text-white pr-5 pl-5 rounded-r hover:cursor-pointer hover:bg-emerald-900"
               >
-                Search
+                <FontAwesomeIcon icon={faSearch} />
               </button>
-            </div>
+            </form>
           </div>
         )}
         <button

@@ -2,7 +2,12 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+              'dm-serif': ['DM Serif Display', 'serif'],
+
+      }
+    },
   },
   variants: {
     extend: {},
