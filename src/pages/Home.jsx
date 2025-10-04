@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch("/products_data.json");
+        const response = await fetch("products_data.json");
         if (!response.ok) throw new Error("Network response was not ok"); // Prevents silent failures
 
         // await new Promise((resolve) => setTimeout(resolve, 2000));
