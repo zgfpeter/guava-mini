@@ -211,9 +211,12 @@ export default function SingleProduct() {
             incidunt modi cum!
           </div>
         )}
-        <section className="my-20 overflow-x-auto md:flex md:place-content-center">
+        <section
+          className="my-20 overflow-x-auto md:flex md:place-content-center"
+          role="list"
+        >
           {similarProducts && similarProducts.length > 0 && (
-            <section>
+            <section role="listitem">
               <h2 className="mb-10 text-xs text-center">SIMILAR PRODUCTS</h2>
               <ul className="flex gap-1 w-max">
                 {similarProducts.map((p, i) => (

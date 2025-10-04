@@ -1,9 +1,9 @@
-export default function PromoBanner({ headingLevel: Heading, bgColor }) {
+export default function PromoBanner({ bgColor }) {
   return (
     <div
       className={`relative grid justify-items-center p-5 gap-3 ${bgColor} text-neutral-100`}
     >
-      <Heading> BACK TO WORK UP TO 85% OFF</Heading>
+      <h1> BACK TO WORK UP TO 85% OFF</h1>
       <p>On your everyday essentials</p>
       <a
         href="/currentSale"

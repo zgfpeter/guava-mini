@@ -114,7 +114,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <PromoBanner headingLevel="h1" bgColor="bg-rose-700" />
+        <PromoBanner bgColor="bg-rose-700" />
         <FiltersBar
           categories={productCategories}
           onSelect={(cat) => {
@@ -136,7 +136,7 @@ export default function Home() {
           )}
           {loading
             ? Array.from({ length: 12 }).map((_, idx) => (
-                <SkeletonCard key={idx} />
+                <SkeletonCard key={idx} role="role" />
               ))
             : visibleProducts.map((product, idx) => (
                 <ProductCard
