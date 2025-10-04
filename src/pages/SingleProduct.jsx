@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useLocalStorage from "../components/useLocalStorage";
 import { Link } from "react-router-dom";
+import productsData from "../assets/products_data.json";
 export default function SingleProduct() {
   const [showDetails, setShowDetails] = useState(false);
   const { id } = useParams();
@@ -30,7 +31,7 @@ export default function SingleProduct() {
     async function fetchProduct() {
       try {
         window.scrollTo(0, 0);
-        const response = await fetch("products_data.json");
+        const response = await fetch(productsData);
         const data = await response.json();
         const found = data.find((p) => String(p.id) === id);
         // find products in the same category
