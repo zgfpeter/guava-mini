@@ -8,7 +8,7 @@ import Footer from "../components/Footer.jsx";
 import { useEffect, useState, useMemo } from "react";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useSearch } from "../context/SearchContext";
-import productsData from "../assets/products_data.json";
+import productsData from "../products_data.json";
 // placeholder cards
 const SkeletonCard = () => (
   <div

@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useLocalStorage from "../components/useLocalStorage";
 import { Link } from "react-router-dom";
-import productsData from "../assets/products_data.json";
+import productsData from "../products_data.json";
 export default function SingleProduct() {
   const [showDetails, setShowDetails] = useState(false);
   const { id } = useParams();

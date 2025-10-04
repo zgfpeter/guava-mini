@@ -4,7 +4,7 @@ import { useSearch } from "../context/SearchContext";
 import PromoBanner from "../components/PromoBanner.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-import productsData from "../assets/products_data.json";
+import productsData from "../products_data.json";
 // Skeleton placeholder while loading
 const SkeletonCard = () => (
   <div
