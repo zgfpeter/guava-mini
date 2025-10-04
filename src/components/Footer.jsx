@@ -1,12 +1,13 @@
+// ok
 import { Link } from "react-router-dom";
 export default function Footer() {
   return (
-    <footer className="grid gap-5 p-3 text-xs mt-auto">
+    <footer className="grid gap-5 p-3 mt-10 text-xs">
       <nav
         aria-label="Social Media Links"
-        className="max-w-xl w-full justify-self-center border-b border-stone-200"
+        className="w-full max-w-xl border-b justify-self-center border-stone-200"
       >
-        <ul className="flex justify-between flex-wrap w-full max-w-xxl p-5">
+        <ul className="flex flex-wrap justify-between w-full p-5 max-w-xxl">
           <li>
             <a
               aria-label="Go to instagram"
@@ -113,7 +114,7 @@ export default function Footer() {
           </li>
         </ul>
       </nav>
-      <p className="text-center pt-5 pb-5 text-gray-500 ">
+      <p className="pt-5 pb-5 text-center text-gray-500 ">
         All rights reserved - © 2025
       </p>
     </footer>

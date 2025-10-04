@@ -40,6 +40,7 @@ export default function Payment() {
     e.preventDefault();
     console.log("Validating...");
   };
+
   return (
     <section>
       <Header />
@@ -47,7 +48,7 @@ export default function Payment() {
       <h1 className="mt-10 mb-2 mx-5 font-bold text-[0.9em] text-center">
         PAYMENT DETAILS
       </h1>
-      <p className="text-xs text-gray-600 text-center">
+      <p className="text-xs text-center text-gray-600">
         Please enter details as they appear on the card
       </p>
       <main className="min-h-screen">
@@ -98,7 +99,7 @@ export default function Payment() {
                 id="cardExpiryMonth"
                 value={month}
                 onChange={(e) => setMonth(e.target.value)}
-                className="border border-stone-400 p-1 w-20"
+                className="w-20 p-1 border border-stone-400"
               >
                 <option value="">MM</option>
                 {months.map((m) => (
@@ -114,7 +115,7 @@ export default function Payment() {
                 id="cardExpiryYear"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
-                className="border border-stone-400 p-1 w-20"
+                className="w-20 p-1 border border-stone-400"
               >
                 <option value="">YY</option>
                 {years.map((y) => (
@@ -129,7 +130,7 @@ export default function Payment() {
             BILLING ADDRESS
           </h2>
 
-          <label className="flex gap-3 items-center">
+          <label className="flex items-center gap-3">
             <input
               type="checkbox"
               id="billing-same"
@@ -225,7 +226,7 @@ export default function Payment() {
             </section>
           )}
 
-          <button className="flex gap-2 items-center justify-center p-3 text-white my-10 bg-rose-700 hover:cursor-pointer hover:bg-rose-900">
+          <button className="flex items-center justify-center gap-2 p-3 my-10 text-white bg-rose-700 hover:cursor-pointer hover:bg-rose-900">
             Pay {formatPrice(total)}
           </button>
         </form>

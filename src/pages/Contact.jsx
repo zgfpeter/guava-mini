@@ -1,3 +1,4 @@
+// ok
 import ContactForm from "../components/ContactForm";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
@@ -21,7 +22,7 @@ export default function Contact() {
           for frequently asked questions.
         </h2>
 
-        <ContactForm className="p-3 flex justify-center items-center w-full md:max-w-3xl mx-auto" />
+        <ContactForm className="flex items-center justify-center w-full p-3 mx-auto md:max-w-3xl" />
       </main>
       <Footer />
     </div>

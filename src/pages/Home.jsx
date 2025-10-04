@@ -1,3 +1,4 @@
+// ok
 import Header from "../components/Header.jsx";
 import FiltersBar from "../components/FiltersBar.jsx";
 import ProductCard from "../components/ProductCard.jsx";
@@ -11,7 +12,7 @@ import { useSearch } from "../context/SearchContext";
 // placeholder cards
 const SkeletonCard = () => (
   <div
-    className="bg-gray-200 animate-pulse rounded-lg h-60 w-full"
+    className="w-full bg-gray-200 rounded-lg animate-pulse h-60"
     aria-hidden="true"
   ></div>
 );
@@ -24,17 +25,18 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const { searchTerm } = useSearch();
 
+  // for the infinity scroll
   // number of products currently visible
   const [visibleCount, setVisibleCount] = useState(12); // initial products to show
   const loadMoreStep = 12; // products to load per click, 2 on small devices, 3 on medium, 4 on large
 
+  // fetch products, so far from local json file
   useEffect(() => {
     async function fetchProducts() {
       try {
         const response = await fetch("/products_data.json");
         if (!response.ok) throw new Error("Network response was not ok"); // Prevents silent failures
 
-        // test skeleton cards
         // await new Promise((resolve) => setTimeout(resolve, 2000));
         const data = await response.json();
         setProducts(data);
@@ -49,7 +51,6 @@ export default function Home() {
   }, []);
 
   // throttling, prevents too many updates per frame.
-  //
   useEffect(() => {
     const handleScroll = () => setShowScroll(window.scrollY > 300);
     let ticking = false;
@@ -79,12 +80,13 @@ export default function Home() {
   // reusing them when the same inputs occur again
   // instead of recomputing, checks cache first for the given arguments
   // needed for large data, but for small data (<200 items?) React is usually faster /than the memo overhead
+
   const filteredProducts = useMemo(() => {
     let result =
       selectedCategory !== "ALL"
         ? products.filter((p) => p.category === selectedCategory)
         : products;
-
+    // when searching for products, search both title and description for the term
     if (searchTerm.trim()) {
       result = result.filter((p) => {
         const lowerSearch = searchTerm.toLowerCase();
@@ -109,10 +111,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <PromoBanner headingLevel="h2" bgColor="bg-rose-700" />
+        <PromoBanner headingLevel="h1" bgColor="bg-rose-700" />
         <FiltersBar
           categories={productCategories}
           onSelect={(cat) => {
@@ -121,7 +123,12 @@ export default function Home() {
           }}
           selectedCategory={selectedCategory}
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+        <div
+          role="list"
+          aria-live="polite"
+          aria-label="Product list"
+          className="grid grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4"
+        >
           {loading && (
             <p className="sr-only" role="status" aria-live="polite">
               Loading products...
@@ -132,11 +139,19 @@ export default function Home() {
                 <SkeletonCard key={idx} />
               ))
             : visibleProducts.map((product, idx) => (
-                <ProductCard key={product.id} {...product} eager={idx === 0} />
+                <ProductCard
+                  role="listitem"
+                  key={product.id}
+                  {...product}
+                  eager={idx === 0}
+                />
               ))}
 
           {!loading && filteredProducts.length === 0 && (
-            <p className="text-center col-span-full text-gray-600">
+            <p
+              className="text-center text-gray-600 col-span-full"
+              role="status"
+            >
               No products found in this category.
             </p>
           )}
@@ -145,27 +160,30 @@ export default function Home() {
         {!loading && filteredProducts.length > visibleProducts.length && (
           <div className="flex justify-center">
             <button
+              aria-label="Load more products"
               onClick={handleLoadMore}
-              className="bg-teal-800 text-white py-3 px-5 my-20 rounded hover:bg-teal-900"
+              className="px-5 py-3 my-20 text-white bg-teal-800 rounded hover:bg-teal-900"
             >
               Load more
             </button>
           </div>
         )}
 
+        {/* no more products */}
         {!loading &&
           filteredProducts.length > 0 &&
           filteredProducts.length <= visibleProducts.length && (
-            <p className="text-center text-gray-600 my-20">
+            <p className="my-20 text-center text-gray-600" role="status">
               No more products to show.
             </p>
           )}
       </main>
 
+      {/* scroll to top  */}
       {showScroll && (
         <button
           aria-label="Scroll to top"
-          className="fixed bottom-5 right-5 rounded-full bg-cyan-700 hover:bg-cyan-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 text-white p-3 shadow-lg"
+          className="fixed p-3 text-white rounded-full shadow-lg bottom-5 right-5 bg-cyan-700 hover:bg-cyan-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
           onClick={scrollToTop}
         >
           <FontAwesomeIcon icon={faArrowUp} />

@@ -1,3 +1,4 @@
+// ok
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PhoneInput from "react-phone-input-2";
@@ -14,6 +15,8 @@ export default function DeliveryDetails() {
   const validateForm = (e) => {
     e.preventDefault();
     console.log("Validating...");
+
+    // i've implemented the validation for the contact form
   };
   return (
     <section>
@@ -23,8 +26,9 @@ export default function DeliveryDetails() {
       </h1>
       <main className="w-full max-w-xl justify-self-center">
         <form
+          onSubmit={validateForm}
           action=""
-          className="grid gap-5 p-10 border-1 border-t-0 border-stone-300"
+          className="grid gap-5 p-10 border-t-0 border-1 border-stone-300"
         >
           <label htmlFor="firstName" className="sr-only">
             First name
@@ -141,11 +145,9 @@ export default function DeliveryDetails() {
           />
           <button
             aria-label="Continue to payment"
-            onSubmit={() => {
-              validateForm(e);
-            }}
+            type="submit"
             to="/payment"
-            className="flex gap-2 items-center justify-center p-3 text-white my-10 bg-rose-700 hover:cursor-pointer hover:bg-rose-900"
+            className="flex items-center justify-center gap-2 p-3 my-10 text-white bg-rose-700 hover:cursor-pointer hover:bg-rose-900"
           >
             Continue to payment
           </button>

@@ -1,3 +1,4 @@
+// ok
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +14,8 @@ import { useState } from "react";
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
   const faq_answers_classes =
-    "h-40 w-full md:w-112 p-3 border-[0.5px] border-black border-collapse flex gap-2 items-center place-content-center text-s bg-stone-100 hover:cursor-pointer hover:bg-stone-200 md:flex-col ";
+    "p-10 border-[0.5px] border-stone-300 bg-stone-100 hover:cursor-pointer hover:bg-stone-200 flex flex-col md:flex-row items-center gap-2 text-s w-full min-w-0";
+
   const faqs = [
     {
       question: "Where is my order?",
@@ -42,19 +44,18 @@ export default function Faq() {
   ];
 
   const toggleFAQ = (index) => {
-    //console.log("toggling");
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Header />
       <h1 className="p-5 mb-10 bg-amber-700 text-white font-bold w-full text-center font-[DM_Serif_Display]">
         HELP
       </h1>
-      <main className="flex-grow flex flex-col self-center w-full md:w-auto">
+      <main className="flex flex-col self-center flex-grow w-full md:w-auto">
         <h2 className="p-5">FREQUENTLY ASKED QUESTIONS</h2>
-        <ul className="flex gap-3 pl-5 pr-5 pb-5 mb-5 flex-col text-stone-600">
+        <ul className="flex flex-col gap-3 pb-5 pl-5 pr-5 mb-5 text-stone-600">
           {faqs.map((faq, index) => (
             <li key={index}>
               <button
@@ -64,7 +65,7 @@ export default function Faq() {
                 {faq.question}
               </button>
               {openIndex === index && (
-                <p className="mt-2 text-sm text-stone-600 p-5 bg-stone-100 ">
+                <p className="p-5 mt-2 text-sm text-stone-600 bg-stone-100 ">
                   {faq.answer}
                 </p>
               )}
@@ -73,7 +74,7 @@ export default function Faq() {
         </ul>
 
         <h2 className="p-5">CATEGORIES</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 text-stone-600">
+        <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 md:grid-cols-2 text-stone-600">
           <div className={faq_answers_classes}>
             <FontAwesomeIcon icon={faTruckFast} className="pr-2" />
             Delivery and order tracking

@@ -1,8 +1,8 @@
+// ok
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faA,
   faArrowLeft,
   faArrowUpFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useLocalStorage from "../components/useLocalStorage";
 import { Link } from "react-router-dom";
-export default function SingleProduct({}) {
+export default function SingleProduct() {
   const [showDetails, setShowDetails] = useState(false);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -25,6 +25,7 @@ export default function SingleProduct({}) {
     ? `${window.location.origin}/product/${product.id}`
     : "";
 
+  // fetch product based on product id
   useEffect(() => {
     async function fetchProduct() {
       try {
@@ -32,6 +33,8 @@ export default function SingleProduct({}) {
         const response = await fetch("/products_data.json");
         const data = await response.json();
         const found = data.find((p) => String(p.id) === id);
+        // find products in the same category
+        // used for similar products
         //exclude current product from similar products
         const similar = data.filter(
           (p) => String(p.category) === found.category && String(p.id) !== id
@@ -40,18 +43,20 @@ export default function SingleProduct({}) {
         setProduct(found);
         setSimilarProducts(similar);
       } catch (err) {
-        console.log("Error fetching product");
+        console.log(`Error ${err} while fetching product`);
       }
     }
     fetchProduct();
   }, [id]);
 
+  // addToCart opens the sizes menu
   const addToCart = () => {
     //check if product is already in cart
     //const exists = cart.find((item) => item.id === product.id);
     setOpenSizes((prev) => !prev);
   };
 
+  // adds a product to card, after size is selected
   const confirmAddToCart = (size) => {
     const productWithSize = { ...product, size };
     setCart([...cart, productWithSize]);
@@ -59,6 +64,7 @@ export default function SingleProduct({}) {
     setAdded(true);
     setOpenSizes(false);
 
+    // shows a message when product added to cart, for 2 secs
     setTimeout(() => {
       setAdded(false);
     }, 2000);
@@ -79,7 +85,7 @@ export default function SingleProduct({}) {
     return (
       <div>
         <Header />
-        <main className="min-h-screen flex items-center justify-center">
+        <main className="flex items-center justify-center min-h-screen">
           <p>Loading product...</p>
         </main>
         <Footer />
@@ -90,41 +96,41 @@ export default function SingleProduct({}) {
   return (
     <div>
       <Header />
-      <main className="min-h-auto w-full ">
+      <main className="w-full min-h-auto ">
         <article className="relative md:flex md:mb-20">
           <div className="w-full h-96 md:h-[500px] overflow-hidden">
             <img
               src={product.image}
               alt={product.title}
-              className="w-full h-full object-cover object-center"
+              className="object-cover object-center w-full h-full"
             />
           </div>
           <div className="relative flex flex-col md:place-content-center md:items-center md:w-full md:gap-3">
-            <p className="self-end md:mr-80 mr-5 mt-5">{product.colors[0]}</p>
-            <p className="pl-3 pb-3 text-stone-600 text-xs">
+            <p className="self-end mt-5 mr-5 md:mr-80">{product.colors[0]}</p>
+            <p className="pb-3 pl-3 text-xs text-stone-600">
               {product.category}
             </p>
-            <h1 className="pl-3 pb-3">{product.title}</h1>
-            <p className="pl-3 pb-3 mb-5">€ {product.price}</p>
+            <h1 className="pb-3 pl-3">{product.title}</h1>
+            <p className="pb-3 pl-3 mb-5">€ {product.price}</p>
 
             {openSizes && (
-              <div className="absolute flex flex-col items-center w-full bg-neutral-50 h-auto min-h-100 left-0 bottom-0 z-25 p-5">
+              <div className="absolute bottom-0 left-0 flex flex-col items-center w-full h-auto p-5 bg-neutral-50 min-h-100 z-25">
                 <button
                   onClick={() => setOpenSizes(false)}
-                  className="self-start mb-3 ml-20 mt-5 p-2 hover:cursor-pointer hover:underline"
+                  className="self-start p-2 mt-5 mb-3 ml-20 hover:cursor-pointer hover:underline"
                   aria-label="Close sizes selection"
                 >
                   <FontAwesomeIcon icon={faArrowLeft} /> Back
                 </button>
-                <h2 className="mb-5 text-gray-600 text-xs">
+                <h2 className="mb-5 text-xs text-gray-600">
                   Please select your size
                 </h2>
-                <ul className="flex align-self-center flex-col gap-3">
+                <ul className="flex flex-col gap-3 align-self-center">
                   {product.sizes.map((size) => (
                     <li
                       key={size}
                       onClick={() => confirmAddToCart(size)}
-                      className="border border-stone-200 w-100 p-2 hover:cursor-pointer hover:bg-stone-200 text-center"
+                      className="p-2 text-center border border-stone-200 w-100 hover:cursor-pointer hover:bg-stone-200"
                     >
                       {size}
                     </li>
@@ -142,26 +148,18 @@ export default function SingleProduct({}) {
               {added ? "Added to cart" : "Add"}
             </button>
 
-            <div className="px-10 py-3 flex place-content-between items-center  md:gap-50">
+            <div className="flex items-center px-10 py-3 place-content-between md:gap-50">
               <div className="relative w-full">
                 <button
-                  className="hover:cursor-pointer underline"
+                  className="underline hover:cursor-pointer"
                   onClick={showProductDetails}
                 >
                   {showDetails ? "Hide Details" : "Show Details"}
                 </button>
-                {showDetails && (
-                  <div className="absolute bg-stone-50  z-20 py-5 px-3 mt-5  border border-stone-300 text-stone-700 text-[0.9em]">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Illum veritatis voluptate earum natus mollitia excepturi
-                    maxime deserunt incidunt modi cum!
-                  </div>
-                )}
               </div>
               <div>
                 <button
                   aria-label="Share product"
-                  //className="pl-3 mt-5 pb-3 flex items-center gap-1 hover:cursor-pointer"
                   onClick={() => setShareOpen(true)}
                 >
                   <FontAwesomeIcon icon={faArrowUpFromBracket} />
@@ -169,15 +167,15 @@ export default function SingleProduct({}) {
                 </button>
                 {shareOpen && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                    <div className="bg-white p-5 rounded-lg shadow-lg w-80">
-                      <h2 className="text-lg mb-3 font-semibold">
+                    <div className="p-5 bg-white rounded-lg shadow-lg w-80">
+                      <h2 className="mb-3 text-lg font-semibold">
                         Share this product
                       </h2>
                       <input
                         type="text"
                         value={productUrl}
                         readOnly
-                        className="w-full border px-2 py-1 text-sm rounded mb-3 bg-stone-100"
+                        className="w-full px-2 py-1 mb-3 text-sm border rounded bg-stone-100"
                       />
                       <div className="flex justify-between gap-3">
                         <button
@@ -187,14 +185,14 @@ export default function SingleProduct({}) {
                             setCopied(true);
                             setTimeout(() => setCopied(false), 2000); // revert after 2 seconds
                           }}
-                          className="flex-1 p-2 bg-teal-700 text-white rounded hover:bg-teal-800"
+                          className="flex-1 p-2 text-white bg-teal-700 rounded hover:bg-teal-800"
                         >
                           {copied ? "Copied!" : "Copy Link"}
                         </button>
                         <button
                           aria-label="Close share window"
                           onClick={() => setShareOpen(false)}
-                          className="flex-1 p-2 bg-stone-300 rounded hover:bg-stone-400"
+                          className="flex-1 p-2 rounded bg-stone-300 hover:bg-stone-400"
                         >
                           Close
                         </button>
@@ -206,28 +204,35 @@ export default function SingleProduct({}) {
             </div>
           </div>
         </article>
+        {showDetails && (
+          <div className=" bg-stone-50  z-20 py-5 px-3 mt-5  border border-stone-300 text-stone-700 text-[0.9em]">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
+            veritatis voluptate earum natus mollitia excepturi maxime deserunt
+            incidunt modi cum!
+          </div>
+        )}
         <section className="my-20 overflow-x-auto md:flex md:place-content-center">
           {similarProducts && similarProducts.length > 0 && (
             <section>
-              <h2 className="text-center mb-10 text-xs">SIMILAR PRODUCTS</h2>
-              <ul className="flex w-max gap-1">
+              <h2 className="mb-10 text-xs text-center">SIMILAR PRODUCTS</h2>
+              <ul className="flex gap-1 w-max">
                 {similarProducts.map((p, i) => (
                   <li
                     key={i}
-                    className="relative h-50 w-50 flex-shrink-0 overflow-hidden"
+                    className="relative flex-shrink-0 overflow-hidden h-50 w-50"
                   >
                     <Link
                       aria-label={`Go to ${p.title}`}
                       to={`/product/${slugify(p.title)}/${p.id}`}
                     >
-                      <div className="h-50 w-50 overflow-hidden">
+                      <div className="overflow-hidden h-50 w-50">
                         <img
                           src={p.image}
                           alt={p.title}
-                          className="h-full w-full object-cover"
+                          className="object-cover w-full h-full"
                         />
                       </div>
-                      <div className="absolute inset-0 bg-emerald-800 opacity-0 hover:opacity-30 transition-opacity hover:cursor-pointer "></div>
+                      <div className="absolute inset-0 transition-opacity opacity-0 bg-emerald-800 hover:opacity-30 hover:cursor-pointer "></div>
                     </Link>
                   </li>
                 ))}
