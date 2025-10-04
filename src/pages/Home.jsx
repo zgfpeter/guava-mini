@@ -8,7 +8,7 @@ import Footer from "../components/Footer.jsx";
 import { useEffect, useState, useMemo } from "react";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useSearch } from "../context/SearchContext";
-import products from "../assets/products_data.json";
+import productsData from "../assets/products_data.json";
 // placeholder cards
 const SkeletonCard = () => (
   <div
@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch(products);
+        const response = await fetch(productsData);
 
         if (!response.ok) throw new Error("Network response was not ok"); // Prevents silent failures
 
