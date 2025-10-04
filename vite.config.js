@@ -8,5 +8,5 @@ export default defineConfig({
     environment:"jsdom",
     globals:true
   },
-  base:"/guava-mini/",
+  base:"/guava/",
 })
