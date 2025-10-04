@@ -22,7 +22,7 @@ export default function SearchResults() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch("/products_data.json");
+        const res = await fetch("products_data.json");
         if (!res.ok) throw new Error("Failed to fetch products");
         const data = await res.json();
         setProducts(data);

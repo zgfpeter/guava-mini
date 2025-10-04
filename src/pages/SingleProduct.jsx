@@ -30,7 +30,7 @@ export default function SingleProduct() {
     async function fetchProduct() {
       try {
         window.scrollTo(0, 0);
-        const response = await fetch("/products_data.json");
+        const response = await fetch("products_data.json");
         const data = await response.json();
         const found = data.find((p) => String(p.id) === id);
         // find products in the same category
