@@ -5,7 +5,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import { getNames } from "country-list";
-
+import { Link } from "react-router-dom";
 import { useState } from "react";
 export default function DeliveryDetails() {
   const [phone, setPhone] = useState("");
@@ -143,14 +143,14 @@ export default function DeliveryDetails() {
             placeholder="County/State"
             className="border border-[#ccc] p-2"
           />
-          <button
+          <Link
             aria-label="Continue to payment"
             type="submit"
             to="/payment"
             className="flex items-center justify-center gap-2 p-3 my-10 text-white bg-rose-700 hover:cursor-pointer hover:bg-rose-900"
           >
             Continue to payment
-          </button>
+          </Link>
         </form>
       </main>
       <Footer />
