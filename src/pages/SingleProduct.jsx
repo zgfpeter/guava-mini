@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useLocalStorage from "../components/useLocalStorage";
 import { Link } from "react-router-dom";
-import productsData from "../products_data.json";
 export default function SingleProduct() {
   const [showDetails, setShowDetails] = useState(false);
   const { id } = useParams();
@@ -23,7 +22,9 @@ export default function SingleProduct() {
   const [copied, setCopied] = useState(false);
 
   const productUrl = product
-    ? `${window.location.origin}/product/${product.id}`
+    ? `${window.location.origin}${import.meta.env.BASE_URL}product/${
+        product.id
+      }`
     : "";
 
   // fetch product based on product id
@@ -31,7 +32,10 @@ export default function SingleProduct() {
     async function fetchProduct() {
       try {
         window.scrollTo(0, 0);
-        const response = await fetch(productsData);
+        const response = await fetch(
+          `${import.meta.env.BASE_URL}products_data.json`
+        );
+
         const data = await response.json();
         const found = data.find((p) => String(p.id) === id);
         // find products in the same category
@@ -143,14 +147,14 @@ export default function SingleProduct() {
               aria-label="Add to cart"
               onClick={addToCart}
               disabled={added}
-              className={`w-full md:w-[30%] mb-10 p-3 text-white hover:cursor-pointer 
-    ${added ? "bg-orange-700" : "bg-teal-800 hover:bg-teal-900"}`}
+              className={`w-full max-w-md self-center rounded md:w-[30%] mb-10 p-3 text-white hover:cursor-pointer 
+    ${added ? "bg-emerald-700" : "bg-teal-800 hover:bg-teal-900"}`}
             >
               {added ? "Added to cart" : "Add"}
             </button>
 
             <div className="flex items-center px-10 py-3 place-content-between md:gap-50">
-              <div className="relative w-full">
+              <div className="relative w-full min-w-[110px]">
                 <button
                   className="underline hover:cursor-pointer"
                   onClick={showProductDetails}
@@ -206,10 +210,13 @@ export default function SingleProduct() {
           </div>
         </article>
         {showDetails && (
-          <div className=" bg-stone-50  z-20 py-5 px-3 mt-5  border border-stone-300 text-stone-700 text-[0.9em]">
+          <div className=" bg-stone-50  z-20 p-5 mt-5  border border-stone-300 text-stone-700 text-[0.9em]">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
             veritatis voluptate earum natus mollitia excepturi maxime deserunt
-            incidunt modi cum!
+            incidunt modi cum! Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Autem consequuntur, quidem, nobis cupiditate ullam
+            eum voluptas perferendis quaerat necessitatibus quia recusandae non
+            excepturi nam quo praesentium nemo optio in? Consequatur?
           </div>
         )}
         <section

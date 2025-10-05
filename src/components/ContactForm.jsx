@@ -25,7 +25,7 @@ export default function ContactForm() {
       newErrors.contact_lastName = "Last name is required";
     if (!contactForm.contact_email)
       newErrors.contact_email = "Email is required";
-    else if (!email.test(contactForm.contact_email))
+    else if (!emailRegex.test(contactForm.contact_email))
       newErrors.contact_email = "Email is invalid";
     if (!contactForm.contact_userMessage)
       newErrors.contact_userMessage = "Message cannot be empty";
@@ -61,7 +61,11 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="shadow-md/30 flex flex-col gap-5 p-5 w-full"
     >
+      <label htmlFor="firstName" className="sr-only">
+        First name
+      </label>
       <input
+        id="firstName"
         type="text"
         name="contact_firstName"
         className="border rounded p-2 bg-stone-50"
@@ -72,8 +76,12 @@ export default function ContactForm() {
       {errors.contact_firstName && (
         <span className="text-red-600">{errors.contact_firstName}</span>
       )}
+      <label htmlFor="lastName" className="sr-only">
+        Last name
+      </label>
 
       <input
+        id="lastName"
         type="text"
         name="contact_lastName"
         className="border rounded p-2 bg-stone-50"
@@ -84,8 +92,11 @@ export default function ContactForm() {
       {errors.contact_lastName && (
         <span className="text-red-600">{errors.contact_lastName}</span>
       )}
-
+      <label htmlFor="email" className="sr-only">
+        Email
+      </label>
       <input
+        id="email"
         type="email"
         name="contact_email"
         className="border rounded p-2 bg-stone-50"
@@ -96,8 +107,12 @@ export default function ContactForm() {
       {errors.contact_email && (
         <span className="text-red-600">{errors.contact_email}</span>
       )}
+      <label htmlFor="email" className="sr-only">
+        Email
+      </label>
 
       <input
+        id="email"
         type="text"
         name="contact_orderNumber"
         className="border rounded p-2 bg-stone-50"
@@ -105,7 +120,9 @@ export default function ContactForm() {
         onChange={handleChange}
         placeholder="Order number (optional) "
       />
+      <label htmlFor="userMessage" className="sr-only"></label>
       <textarea
+        id="userMessage"
         name="contact_userMessage"
         className="border rounded p-2 bg-stone-50"
         placeholder="Message..."
@@ -123,6 +140,7 @@ export default function ContactForm() {
         </span>
       )}
       <button
+        aria-label="Submit contact form"
         type="submit"
         className="w-full pt-3 pb-3 pl-10 pr-10 bg-emerald-700 text-white self-center rounded hover:cursor-pointer hover:bg-emerald-900"
       >

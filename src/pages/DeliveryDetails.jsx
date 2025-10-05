@@ -5,19 +5,65 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import { getNames } from "country-list";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { useState } from "react";
 export default function DeliveryDetails() {
+  const navigate = useNavigate();
   const [phone, setPhone] = useState("");
   const countries = getNames().map((name) => ({ value: name, label: name }));
   const [country, setCountry] = useState(null);
+  const [dDForm, setdDForm] = useState({
+    dD_firstName: "",
+    dD_lastName: "",
+    dD_email: "",
+  });
 
-  const validateForm = (e) => {
-    e.preventDefault();
-    console.log("Validating...");
+  const [errors, setErrors] = useState({});
+  //const [formSuccess, setFormSuccess] = useState(false);
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    // i've implemented the validation for the contact form
+  const handleChange = (e) => {
+    //console.log(e.target.value);
+    setdDForm({
+      ...dDForm,
+      [e.target.name]: e.target.value,
+    });
   };
+
+  // form validation only checks first name, last name and email
+  // the contact form is more thorough
+  const validateForm = () => {
+    const newErrors = {};
+    // trim removes whitespaces
+    if (!dDForm.dD_firstName.trim()) {
+      newErrors.dD_firstName = "First name is required";
+    }
+
+    if (!dDForm.dD_lastName.trim()) {
+      newErrors.dD_lastName = "Last name is required";
+    }
+
+    if (!dDForm.dD_email) newErrors.contact_email = "Email is required";
+    else if (!emailRegex.test(dDForm.dD_email))
+      newErrors.contact_email = "Email is invalid";
+
+    return newErrors;
+  };
+
+  const handleSubmit = () => {
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      //if there is at least one error...
+      setErrors(validationErrors);
+    } else {
+      setErrors({}); // no errors, send data
+
+      // Redirect to the payment page after success
+      navigate("/payment");
+    }
+  };
+
   return (
     <section>
       <Header />
@@ -26,7 +72,7 @@ export default function DeliveryDetails() {
       </h1>
       <main className="w-full max-w-xl justify-self-center">
         <form
-          onSubmit={validateForm}
+          onSubmit={handleSubmit}
           action=""
           className="grid gap-5 p-10 border-t-0 border-1 border-stone-300"
         >
@@ -34,34 +80,51 @@ export default function DeliveryDetails() {
             First name
           </label>
           <input
+            onChange={handleChange}
             id="firstName"
             type="text"
+            name="dD_firstName"
             required
             placeholder="First name"
             className="border border-[#ccc] p-2"
           />
+          {errors.contact_firstName && (
+            <span className="text-red-600">{errors.contact_firstName}</span>
+          )}
           <label htmlFor="lastName" className="sr-only">
             Last name
           </label>
 
           <input
+            onChange={handleChange}
             id="lastName"
             type="text"
+            name="dD_lastName"
             required
             placeholder="Last name"
             className="border border-[#ccc] p-2"
           />
+          {errors.contact_lastName && (
+            <span className="text-red-600">{errors.contact_lastName}</span>
+          )}
+
           <label htmlFor="email" className="sr-only">
             Email
           </label>
 
           <input
+            onChange={handleChange}
             id="email"
             type="email"
+            name="dD_email"
             required
             placeholder="E-mail"
             className="border border-[#ccc] p-2"
           />
+          {errors.contact_email && (
+            <span className="text-red-600">{errors.contact_email}</span>
+          )}
+
           <PhoneInput
             country={"us"} // default country
             value={phone}
@@ -143,14 +206,14 @@ export default function DeliveryDetails() {
             placeholder="County/State"
             className="border border-[#ccc] p-2"
           />
-          <Link
+
+          <button
             aria-label="Continue to payment"
             type="submit"
-            to="/payment"
-            className="flex items-center justify-center gap-2 p-3 my-10 text-white bg-rose-700 hover:cursor-pointer hover:bg-rose-900"
+            className="w-full pt-3 pb-3 pl-10 pr-10 bg-emerald-700 text-white self-center rounded hover:cursor-pointer hover:bg-emerald-900"
           >
-            Continue to payment
-          </Link>
+            CONTINUE TO PAYMENT
+          </button>
         </form>
       </main>
       <Footer />

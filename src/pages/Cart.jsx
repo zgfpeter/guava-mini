@@ -37,17 +37,17 @@ export default function Cart() {
     <div>
       <Header />
 
-      <main className="min-h-[50vh] p-5 md:max-w-[40%] mx-auto md:flex md:flex-col md:items-center mx-auto">
+      <main className="min-h-[50vh] p-5 md:max-w-[40%] md:flex md:flex-col md:items-center mx-auto">
         <h1 id="cart-heading" tabIndex="-1" className="text-2xl font-bold mb-5">
           Cart ({cart.length})
         </h1>
 
         {cart.length > 0 ? (
-          <section className="grid gap-5 flex w-full">
+          <section className="grid gap-5 w-full">
             {cart.map((product) => (
               <article
                 key={product.id}
-                className="relative flex gap-5 border p-3 rounded"
+                className="relative flex gap-5 border-t border-r border-l border-zinc-300 p-3 rounded-t"
               >
                 <img
                   src={product.image}
@@ -78,7 +78,7 @@ export default function Cart() {
               </article>
             ))}
 
-            <section className="grid p-3 mt-10 border border-stone-300 gap-2">
+            <section className="grid p-3 mt-10 border-b border-l border-r border-zinc-300 rounded-b gap-2">
               <h2 className="sr-only">Order Summary</h2>
               <p className="flex justify-between text-sm">
                 Price <span>{formatPrice(totalPrice)}</span>

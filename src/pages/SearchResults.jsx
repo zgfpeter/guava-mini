@@ -4,7 +4,6 @@ import { useSearch } from "../context/SearchContext";
 import PromoBanner from "../components/PromoBanner.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-import productsData from "../products_data.json";
 // Skeleton placeholder while loading
 const SkeletonCard = () => (
   <div
@@ -22,7 +21,10 @@ export default function SearchResults() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch(productsData);
+        const res = await fetch(
+          `${import.meta.env.BASE_URL}products_data.json`
+        );
+
         if (!res.ok) throw new Error("Failed to fetch products");
         const data = await res.json();
         setProducts(data);
