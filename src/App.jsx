@@ -24,7 +24,7 @@ function App() {
   return (
     <SearchProvider>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/help" element={<Help />} />
         <Route path="/shippingAndReturns" element={<ShippingAndReturns />} />

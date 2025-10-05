@@ -22,8 +22,8 @@ export default function LandingPage() {
               aria-label="Shop new arrivals"
               className="text-white text-2xl font-bold tracking-[0.5em] bg-emerald-900/80 p-8 rounded hover:bg-emerald-900/100 focus:outline focus:outline-offset-2 focus:outline-emerald-700"
             >
-              <span className="block">NEW</span>{" "}
-              <span className="block">ARRIVALS</span>
+              <span className="block">SHOP</span>{" "}
+              <span className="block">THE COLLECTION</span>
             </Link>
           </div>
         </section>
