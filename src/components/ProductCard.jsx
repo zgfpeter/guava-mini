@@ -18,7 +18,7 @@ export default function ProductCard({
   return (
     <section>
       <Link to={`/product/${id}`} className="flex flex-col gap-y-2 h-full">
-        <div className="w-full aspect-square overflow-hidden rounded">
+        <div className="w-full aspect-square overflow-hidden rounded  hover:opacity-90">
           <ProductImage src={image} alt={title} eager={eager} />
         </div>
 

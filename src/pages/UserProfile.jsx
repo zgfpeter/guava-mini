@@ -41,7 +41,7 @@ export default function UserProfile() {
   return (
     <section>
       <Header />
-      <main className="min-h-screen flex flex-col items-center">
+      <main className="min-h-auto flex flex-col items-center my-20">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-3 items-center border border-stone-200 p-10 mt-10 w-full max-w-md"
@@ -94,7 +94,7 @@ export default function UserProfile() {
 
         <a
           href="/deliveryDetails"
-          className="block underline mt-5 self-end mr-10 text-gray-600"
+          className="block underline mt-5 text-gray-600"
         >
           Continue as guest <FontAwesomeIcon icon={faArrowRight} />
         </a>

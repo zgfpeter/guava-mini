@@ -165,7 +165,7 @@ export default function Home() {
             <button
               aria-label="Load more products"
               onClick={handleLoadMore}
-              className="px-5 py-3 my-20 text-white bg-teal-800 rounded hover:bg-teal-900"
+              className="px-5 py-3 my-20 text-white bg-teal-800 rounded hover:bg-teal-900 hover:cursor-pointer"
             >
               Load more
             </button>

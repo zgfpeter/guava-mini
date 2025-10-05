@@ -37,7 +37,7 @@ export default function Cart() {
     <div>
       <Header />
 
-      <main className="min-h-[50vh] p-5 md:max-w-[40%] md:flex md:flex-col md:items-center mx-auto">
+      <main className="min-h-[50vh] max-w-3xl p-5 md:flex md:flex-col md:items-center mx-auto">
         <h1 id="cart-heading" tabIndex="-1" className="text-2xl font-bold mb-5">
           Cart ({cart.length})
         </h1>
