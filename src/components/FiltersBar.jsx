@@ -36,7 +36,7 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
         className="p-5 hover:cursor-pointer"
       >
         <FontAwesomeIcon icon={faFilter} className="text-[1.2em]" />
-        FILTER AND ORDER
+        FILTER
       </button>
       {menuOpen && (
         <ul className="grid gap-2 p-5 bg-stone-100 text-[0.9em] font-thin justify-items-start">

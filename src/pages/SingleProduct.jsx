@@ -190,7 +190,7 @@ export default function SingleProduct() {
                             setCopied(true);
                             setTimeout(() => setCopied(false), 2000); // revert after 2 seconds
                           }}
-                          className="flex-1 p-2 text-white bg-teal-700 rounded hover:bg-teal-800"
+                          className="flex-1 p-2 text-white bg-teal-700 rounded hover:bg-teal-800 hover:cursor-pointer"
                         >
                           {copied ? "Copied!" : "Copy Link"}
                         </button>
