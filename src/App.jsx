@@ -9,7 +9,7 @@ import Contact from "./pages/Contact.jsx";
 import { Routes, Route } from "react-router-dom";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart.jsx";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Payment from "./pages/Payment.jsx";
 import DeliveryDetails from "./pages/DeliveryDetails.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
@@ -17,9 +17,9 @@ import UserRegistration from "./pages/UserRegistration.jsx";
 import { SearchProvider } from "./context/SearchContext";
 import SearchResults from "./pages/SearchResults.jsx";
 function App() {
-  useEffect(() => {
-    localStorage.clear(); // clears everything on load
-  }, []);
+  // useEffect(() => {
+  //   localStorage.clear(); // clears everything on load
+  // }, []);
 
   return (
     <SearchProvider>
