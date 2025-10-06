@@ -22,7 +22,7 @@ export default function SingleProduct() {
   const [copied, setCopied] = useState(false);
 
   const productUrl = product
-    ? `${window.location.origin}${import.meta.env.BASE_URL}product/${
+    ? `${window.location.origin}${import.meta.env.BASE_URL}#/product/${
         product.id
       }`
     : "";
