@@ -10,14 +10,14 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
   // buttons so that categories can be tabbed with keyboard
   function openFilters() {
     return categories.map((category) => (
-      <li key={category} className="w-full">
+      <li key={category} className="">
         <button
           onClick={() => {
             onSelect(category);
             setMenuOpen((prev) => !prev);
           }}
-          className={`hover:cursor-pointer hover:underline p-2 w-full text-start ${
-            selectedCategory === category ? "bg-cyan-800 text-white" : ""
+          className={`hover:cursor-pointer hover:underline ${
+            selectedCategory === category ? "underline font-bold" : ""
           }`}
         >
           {category
@@ -39,7 +39,7 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
         FILTER
       </button>
       {menuOpen && (
-        <ul className="grid gap-2 p-5 bg-stone-100 text-[0.9em] font-thin justify-items-start">
+        <ul className="flex flex-wrap py-7 px-3 gap-3">
           {openFilters(categories)}
         </ul>
       )}
