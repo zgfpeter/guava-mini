@@ -39,7 +39,7 @@ export default function FiltersBar({ categories, onSelect, selectedCategory }) {
         FILTER
       </button>
       {menuOpen && (
-        <ul className="flex flex-wrap py-7 px-3 gap-3">
+        <ul className="flex flex-wrap gap-3 px-3 py-7">
           {openFilters(categories)}
         </ul>
       )}

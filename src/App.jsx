@@ -16,6 +16,7 @@ import UserProfile from "./pages/UserProfile.jsx";
 import UserRegistration from "./pages/UserRegistration.jsx";
 import { SearchProvider } from "./context/SearchContext";
 import SearchResults from "./pages/SearchResults.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 function App() {
   // useEffect(() => {
   //   localStorage.clear(); // clears everything on load
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <SearchProvider>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<Home />} />

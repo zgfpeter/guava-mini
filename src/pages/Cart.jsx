@@ -55,7 +55,7 @@ export default function Cart() {
                   className="w-[160px] h-[200px] object-cover"
                 />
                 <div className="flex flex-col justify-between">
-                  <h2 className="text-lg font-semibold">{product.title}</h2>
+                  <h2 className="font-semibold">{product.title}</h2>
                   {product.size && (
                     <p className="text-sm text-stone-500">
                       Size: {product.size}

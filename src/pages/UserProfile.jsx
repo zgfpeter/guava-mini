@@ -3,7 +3,7 @@ import Footer from "../components/Footer.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function UserProfile() {
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
@@ -41,10 +41,10 @@ export default function UserProfile() {
   return (
     <section>
       <Header />
-      <main className="min-h-auto flex flex-col items-center my-20">
+      <main className="flex flex-col items-center my-20 min-h-auto">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-3 items-center border border-stone-200 p-10 mt-10 w-full max-w-md"
+          className="flex flex-col items-center w-full max-w-md gap-3 p-10 mt-10 border border-stone-200"
         >
           <label htmlFor="username" className="sr-only">
             Username
@@ -54,7 +54,7 @@ export default function UserProfile() {
             id="username"
             placeholder="Username"
             ref={usernameRef}
-            className="border p-2 w-full border-stone-400"
+            className="w-full p-2 border border-stone-400"
           />
           {errors.username && (
             <span className="text-red-600">{errors.username}</span>
@@ -68,7 +68,7 @@ export default function UserProfile() {
             id="userPassword"
             placeholder="Password"
             ref={passwordRef}
-            className="border p-2 w-full border-stone-400"
+            className="w-full p-2 border border-stone-400"
           />
           {errors.password && (
             <span className="text-red-600">{errors.password}</span>
@@ -76,7 +76,7 @@ export default function UserProfile() {
 
           <button
             type="submit"
-            className="w-full py-3 bg-emerald-700 text-white rounded hover:bg-emerald-900"
+            className="w-full py-3 text-white rounded bg-emerald-700 hover:bg-emerald-900"
           >
             LOG IN
           </button>
@@ -84,20 +84,20 @@ export default function UserProfile() {
 
         <p className="text-center mt-[15px] mb-10 flex flex-col">
           Don't have an account?
-          <a
-            href="/userRegistration"
-            className="underline inline-block mt-2 py-3 px-5 tracking-wider rounded"
+          <Link
+            to="/userRegistration"
+            className="inline-block px-5 py-3 mt-2 tracking-wider underline rounded"
           >
             REGISTER
-          </a>
+          </Link>
         </p>
 
-        <a
-          href="/deliveryDetails"
-          className="block underline mt-5 text-gray-600"
+        <Link
+          to="/deliveryDetails"
+          className="block mt-5 text-gray-600 underline"
         >
           Continue as guest <FontAwesomeIcon icon={faArrowRight} />
-        </a>
+        </Link>
       </main>
       <Footer />
     </section>

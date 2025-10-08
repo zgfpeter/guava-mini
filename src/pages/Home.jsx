@@ -33,7 +33,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        console.log("fetching");
+        //console.log("fetching products");
         const response = await fetch(
           `${import.meta.env.BASE_URL}products_data.json`
         );
