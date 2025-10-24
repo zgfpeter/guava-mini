@@ -210,7 +210,7 @@ export default function DeliveryDetails() {
           <button
             aria-label="Continue to payment"
             type="submit"
-            className="w-full pt-3 pb-3 pl-10 pr-10 bg-emerald-700 text-white self-center rounded hover:cursor-pointer hover:bg-emerald-900"
+            className="self-center w-full pt-3 pb-3 pl-10 pr-10 text-white rounded bg-emerald-700 hover:cursor-pointer hover:bg-emerald-900"
           >
             CONTINUE TO PAYMENT
           </button>

@@ -1,11 +1,13 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function UserRegistration() {
   // refs for inputs
   // state more useful for validation as the user types, but if i only need
   // to validate on submit, useRef is better, fewer renders, but less reactive.
+  const navigate = useNavigate();
 
   const usernameRef = useRef(null);
   const emailRef = useRef(null);
@@ -54,23 +56,23 @@ export default function UserRegistration() {
       emailRef.current.value = "";
       passwordRef.current.value = "";
 
-      setTimeout(() => setFormSuccess(false), 50000);
+      setTimeout(() => {
+        setFormSuccess(false);
+        navigate("/home");
+      }, 2000);
     }
   };
 
   return (
     <section>
       <Header />
-      <main className="my-20 flex items-center flex-col">
+      <main className="flex flex-col items-center my-20">
         {formSuccess && (
-          <span className="m-5 p-5 bg-emerald-800 text-white text-center">
-            A verification email has been send to your address. Please check
-            your <span className="underline">inbox</span> and verify your email.
-          </span>
+          <span className="text-center text-emerald-500">Success!</span>
         )}
         <form
           onSubmit={handleSubmit}
-          className="shadow-md/30 flex flex-col gap-5 p-5 w-full max-w-md"
+          className="flex flex-col w-full max-w-md gap-5 p-5 shadow-md/30"
         >
           <label htmlFor="username" className="sr-only">
             Username
@@ -80,7 +82,7 @@ export default function UserRegistration() {
             type="text"
             id="username"
             ref={usernameRef}
-            className="border rounded p-2 bg-stone-50"
+            className="p-2 border rounded bg-stone-50"
             placeholder="Username"
           />
           {errors.username && (
@@ -95,7 +97,7 @@ export default function UserRegistration() {
             type="email"
             id="email"
             ref={emailRef}
-            className="border rounded p-2 bg-stone-50"
+            className="p-2 border rounded bg-stone-50"
             placeholder="Email Address"
           />
           {errors.email && <span className="text-red-600">{errors.email}</span>}
@@ -108,7 +110,7 @@ export default function UserRegistration() {
             type="password"
             id="password"
             ref={passwordRef}
-            className="border rounded p-2 bg-stone-50"
+            className="p-2 border rounded bg-stone-50"
             placeholder="Password"
           />
           {errors.password && (
@@ -117,7 +119,7 @@ export default function UserRegistration() {
 
           <button
             type="submit"
-            className="w-full pt-3 pb-3 pl-10 pr-10 bg-emerald-700 text-white self-center rounded hover:cursor-pointer hover:bg-emerald-900"
+            className="self-center w-full pt-3 pb-3 pl-10 pr-10 text-white rounded bg-emerald-700 hover:cursor-pointer hover:bg-emerald-900"
           >
             REGISTER
           </button>
@@ -125,7 +127,7 @@ export default function UserRegistration() {
 
         <p className="mt-10">
           Already have an account?
-          <a href="/userProfile" className="underline ml-1">
+          <a href="/userProfile" className="ml-1 underline">
             LOG IN
           </a>
         </p>

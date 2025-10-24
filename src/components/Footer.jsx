@@ -114,8 +114,8 @@ export default function Footer() {
           </li>
         </ul>
       </nav>
-      <p className="pt-5 pb-5 text-center text-gray-500 ">
-        All rights reserved - © 2025
+      <p className="flex content-center justify-center pt-5 pb-5 text-gray-500">
+        All rights reserved - <span className="text-sm/snug">©</span>2025
       </p>
     </footer>
   );
