@@ -4,6 +4,7 @@ import Select from "react-select";
 import { useState, useEffect } from "react";
 import { getNames } from "country-list";
 import { Link } from "react-router-dom";
+
 export default function Payment() {
   const [sameAsDelivery, setSameAsDelivery] = useState(true);
   const [month, setMonth] = useState("");
@@ -16,12 +17,16 @@ export default function Payment() {
 
   useEffect(() => {
     const savedTotal = localStorage.getItem("cartTotal");
-    if (savedTotal) setTotal(Number(savedTotal)); // convert back to number
+    if (savedTotal) setTotal(Number(savedTotal));
   }, []);
+
   const months = Array.from({ length: 12 }, (_, i) => {
     const m = i + 1;
     return m < 10 ? `0${m}` : `${m}`;
   });
+
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 10 }, (_, i) => currentYear + i);
 
   const formatPrice = (value) =>
     new Intl.NumberFormat("de-DE", {
@@ -29,11 +34,8 @@ export default function Payment() {
       currency: "EUR",
     }).format(value);
 
-  const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: 10 }, (_, i) => currentYear + i);
-
   const handleChange = (e) => {
-    const value = e.target.value.slice(0, 16); // limit to 16 digits
+    const value = e.target.value.slice(0, 16);
     setCardNumber(value);
   };
 
@@ -43,16 +45,35 @@ export default function Payment() {
   };
 
   const paymentSuccessful = () => {
-    setIsPaid(true); // mark payment as complete
+    setIsPaid(true);
+  };
+
+  // For testing
+  const handleTestFill = () => {
+    // Card details
+    setCardNumber("4111111111111111"); // dummy card
+    setMonth("12");
+    setYear(`${currentYear + 2}`);
+
+    // Billing address
+    if (!sameAsDelivery) {
+      document.getElementById("billing-firstName").value = "John";
+      document.getElementById("billing-lastName").value = "Doe";
+      setCountry(countries.find((c) => c.value === "United States") || null);
+      document.getElementById("billing-town").value = "Testville";
+      document.getElementById("billing-address").value = "123 Main St";
+      document.getElementById("billing-postcode").value = "12345";
+    }
+
+    document.getElementById("firstName").value = "John";
+    document.getElementById("lastName").value = "Doe";
   };
 
   return (
     <section>
       <Header />
-
       <main className="w-full max-w-xl min-h-screen justify-self-center">
         {isPaid ? (
-          // Message after payment
           <div className="w-full p-5 text-center">
             <h2 className="mb-4 text-2xl font-bold text-emerald-600">
               Thank you for your purchase!
@@ -76,9 +97,7 @@ export default function Payment() {
               onSubmit={validateForm}
               className="grid gap-5 p-5 border border-t-0 border-stone-300"
             >
-              <label htmlFor="firstName" className="sr-only">
-                First name
-              </label>
+              {/* Name and card */}
               <input
                 placeholder="First name"
                 type="text"
@@ -86,9 +105,6 @@ export default function Payment() {
                 required
                 className="border border-[#ccc] p-2"
               />
-              <label htmlFor="lastName" className="sr-only">
-                Last name
-              </label>
               <input
                 placeholder="Last name"
                 type="text"
@@ -96,9 +112,6 @@ export default function Payment() {
                 required
                 className="border border-[#ccc] p-2"
               />
-              <label htmlFor="cardNumber" className="sr-only">
-                Card Number
-              </label>
               <input
                 type="tel"
                 id="cardNumber"
@@ -112,9 +125,6 @@ export default function Payment() {
               <fieldset>
                 <legend className="flex items-center gap-3">
                   Expiry Details
-                  <label htmlFor="cardExpiryMonth" className="sr-only">
-                    Month
-                  </label>
                   <select
                     id="cardExpiryMonth"
                     value={month}
@@ -128,9 +138,6 @@ export default function Payment() {
                       </option>
                     ))}
                   </select>
-                  <label htmlFor="cardExpiryYear" className="sr-only">
-                    Year
-                  </label>
                   <select
                     id="cardExpiryYear"
                     value={year}
@@ -146,10 +153,8 @@ export default function Payment() {
                   </select>
                 </legend>
               </fieldset>
-              <h2 className="mt-10 mb-2 mx-5 font-bold text-[0.9em] text-center">
-                BILLING ADDRESS
-              </h2>
 
+              {/* Billing Address */}
               <label className="flex items-center gap-3">
                 <input
                   type="checkbox"
@@ -162,9 +167,6 @@ export default function Payment() {
 
               {!sameAsDelivery && (
                 <section className="grid gap-5 p-5 border border-t-0 border-stone-300">
-                  <label htmlFor="billing-firstName" className="sr-only">
-                    First name
-                  </label>
                   <input
                     type="text"
                     placeholder="First name"
@@ -172,9 +174,6 @@ export default function Payment() {
                     id="billing-firstName"
                     className="border border-[#ccc] p-2"
                   />
-                  <label htmlFor="billing-lastName" className="sr-only">
-                    Last name
-                  </label>
                   <input
                     id="billing-lastName"
                     placeholder="Last name"
@@ -182,9 +181,6 @@ export default function Payment() {
                     required
                     className="border border-[#ccc] p-2"
                   />
-                  <label htmlFor="selectCountry" className="sr-only">
-                    Country
-                  </label>
                   <Select
                     inputId="selectCountry"
                     options={countries}
@@ -207,15 +203,10 @@ export default function Payment() {
                         ...provided,
                         color: "#888",
                         fontStyle: "italic",
-                        padding: "",
                       }),
                     }}
                     isSearchable
                   />
-
-                  <label htmlFor="billing-town" className="sr-only">
-                    Town/City
-                  </label>
                   <input
                     id="billing-town"
                     placeholder="City"
@@ -223,9 +214,6 @@ export default function Payment() {
                     type="text"
                     className="border border-[#ccc] p-2"
                   />
-                  <label htmlFor="billing-address" className="sr-only">
-                    Address
-                  </label>
                   <input
                     required
                     id="billing-address"
@@ -233,9 +221,6 @@ export default function Payment() {
                     type="text"
                     className="border border-[#ccc] p-2"
                   />
-                  <label htmlFor="billing-postcode" className="sr-only">
-                    Postcode
-                  </label>
                   <input
                     required
                     id="billing-postcode"
@@ -246,11 +231,22 @@ export default function Payment() {
                 </section>
               )}
 
+              {/* Payment Button */}
               <button
+                type="button"
                 onClick={paymentSuccessful}
-                className="flex items-center justify-center gap-2 p-3 my-10 text-white bg-rose-700 hover:cursor-pointer hover:bg-rose-900"
+                className="flex items-center justify-center gap-2 p-3 my-5 text-white bg-rose-700 hover:cursor-pointer hover:bg-rose-900"
               >
                 Pay {formatPrice(total)}
+              </button>
+
+              {/* --- TESTING BUTTONS --- */}
+              <button
+                type="button"
+                onClick={handleTestFill}
+                className="self-center w-full pt-3 pb-3 rounded "
+              >
+                Auto-Fill Test Data
               </button>
             </form>
           </>

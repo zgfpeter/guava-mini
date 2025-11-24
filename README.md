@@ -11,7 +11,14 @@ It is SEO optimized, responsive and contains elements such as a contact form, pr
 - FontAwesome icons
 - Vite
 - JavaScript, HTML, CSS
+[![Live Preview](https://img.shields.io/badge/Live-Preview-green)](https://zgfpeter.github.io/guava-mini/)
 
+
+![Products Page](./public/screenshots/productPage.png)
+![Single Product Page](./public/screenshots/singleProduct.png)
+![Search For Product](./public/screenshots/search.png)
+![Product Cart](./public/screenshots/cart.png)
+![Delivery Page](./public/screenshots/delivery.png)
 
 ## Features
 - Browse products with dynamic filters
